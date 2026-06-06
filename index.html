@@ -81,7 +81,7 @@ nav{
 }
 .nav-mark{
   font-family:var(--f-mono);font-size:.7rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--ash);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--mist);
   display:flex;align-items:center;gap:.75rem;
 }
 .nav-mark-line{width:20px;height:1px;background:var(--gold)}
@@ -97,7 +97,7 @@ nav{
 .nav-links{display:flex;align-items:center;gap:0;border:1px solid var(--fence);border-radius:3px;overflow:hidden}
 .nav-link{
   font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--fog);
+  text-transform:uppercase;color:var(--ash);
   padding:.4rem 1rem;border-right:1px solid var(--fence);
   transition:color .2s,background .2s;
 }
@@ -171,11 +171,11 @@ nav{
   -webkit-text-stroke:0px transparent;
 }
 .hero-body{
-  font-size:.88rem;color:var(--ash);line-height:1.85;
+  font-size:.88rem;color:var(--veil);line-height:1.85;
   max-width:440px;margin-bottom:2.5rem;
   padding-left:1.25rem;border-left:1px solid var(--fence);
 }
-.hero-body strong{color:var(--veil);font-weight:400}
+.hero-body strong{color:var(--white);font-weight:400}
 .hero-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:3rem}
 .chip{
   font-family:var(--f-mono);font-size:.62rem;letter-spacing:.05em;
@@ -226,7 +226,7 @@ nav{
 .tl-path{color:var(--ash)}
 .tl-cmd{color:var(--white)}
 .tl-ok{color:var(--gold)}
-.tl-dim{color:var(--haze)}
+.tl-dim{color:var(--fog)}
 .tl-key{color:var(--veil)}
 .tl-num{color:var(--gold2)}
 .tl-sp{height:.5rem}
@@ -242,7 +242,7 @@ nav{
 }
 .dp-label{
   font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--haze);
+  text-transform:uppercase;color:var(--fog);
   display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;
 }
 .dp-label::after{content:'';flex:1;height:1px;background:var(--fence)}
@@ -257,7 +257,7 @@ nav{
   font-family:var(--f-mono);font-size:.7rem;
 }
 .dp-row:last-child{border-bottom:none}
-.dp-k{color:var(--fog)}
+.dp-k{color:var(--ash)}
 .dp-v{font-weight:400}
 .dp-v.g{color:var(--gold)}
 .dp-v.a{
@@ -298,7 +298,7 @@ nav{
   font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--haze);
 }
-.n-sub{font-size:.78rem;color:var(--fog);margin-top:.25rem}
+.n-sub{font-size:.78rem;color:var(--ash);margin-top:.25rem}
 
 /* ── SECTION SHELL ── */
 .sec{position:relative;z-index:2;border-bottom:1px solid var(--fence)}
@@ -313,7 +313,7 @@ nav{
 .sec-rule{flex:1;height:1px;background:var(--fence)}
 .sec-tag{
   font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--haze);
+  text-transform:uppercase;color:var(--fog);
 }
 .sec-h{
   font-family:var(--f-serif);
@@ -321,7 +321,7 @@ nav{
   font-weight:700;letter-spacing:-.03em;
   color:var(--white);margin-bottom:1rem;line-height:1.05;
 }
-.sec-sub{color:var(--ash);font-size:.88rem;max-width:480px;line-height:1.8}
+.sec-sub{color:var(--mist);font-size:.88rem;max-width:480px;line-height:1.8}
 
 /* ── PIPELINE ── */
 .pipe{
@@ -352,7 +352,7 @@ nav{
   font-family:var(--f-serif);font-size:1rem;font-weight:700;
   color:var(--white);margin-bottom:.35rem;
 }
-.pn-detail{font-family:var(--f-mono);font-size:.65rem;color:var(--ash);line-height:1.6}
+.pn-detail{font-family:var(--f-mono);font-size:.65rem;color:var(--mist);line-height:1.6}
 .pn-arr{
   position:absolute;right:-11px;top:50%;transform:translateY(-50%);
   z-index:2;width:22px;height:22px;
@@ -365,7 +365,7 @@ nav{
   display:flex;gap:2.5rem;padding:1.1rem 1.5rem;
   background:var(--void);border-top:1px solid var(--fence);
 }
-.pf-item{display:flex;align-items:center;gap:.45rem;font-family:var(--f-mono);font-size:.62rem;color:var(--fog)}
+.pf-item{display:flex;align-items:center;gap:.45rem;font-family:var(--f-mono);font-size:.62rem;color:var(--ash)}
 .pf-dot{width:5px;height:5px;border-radius:50%}
 
 /* ── PROJECTS ── */
@@ -403,16 +403,16 @@ nav{
   color:var(--white);transition:color .2s;
 }
 .pc-name:hover{color:var(--gold)}
-.pc-body{color:var(--ash);font-size:.84rem;line-height:1.75}
+.pc-body{color:var(--mist);font-size:.84rem;line-height:1.75}
 .pc-pills{display:flex;flex-wrap:wrap;gap:.3rem}
 .pp{
-  font-family:var(--f-mono);font-size:.62rem;color:var(--haze);
+  font-family:var(--f-mono);font-size:.62rem;color:var(--ash);
   border:1px solid var(--fence);padding:.15rem .45rem;border-radius:2px;
   background:var(--deep);
 }
 .pc-lnk{
   display:inline-flex;align-items:center;gap:.3rem;margin-top:auto;
-  font-family:var(--f-mono);font-size:.68rem;color:var(--fog);
+  font-family:var(--f-mono);font-size:.68rem;color:var(--mist);
   transition:color .2s;
 }
 .pc-lnk:hover{color:var(--gold)}
@@ -428,7 +428,7 @@ nav{
   display:flex;justify-content:space-between;align-items:center;
   margin-bottom:1rem;padding-bottom:.85rem;
   border-bottom:1px solid var(--fence);
-  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--haze);
+  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);
 }
 .ic-badge{
   font-size:.58rem;padding:.12rem .4rem;border-radius:2px;
@@ -440,7 +440,7 @@ nav{
   padding:.38rem 0;border-bottom:1px solid var(--fence);
 }
 .ic-row:last-child{border-bottom:none}
-.ick{color:var(--fog)}
+.ick{color:var(--ash)}
 .icv{font-weight:400}
 .icv.g{color:var(--gold)}
 .icv.a{color:#c8aa64}
@@ -460,7 +460,7 @@ nav{
 }
 .sg-items{display:flex;flex-wrap:wrap;gap:.35rem}
 .sg-item{
-  font-family:var(--f-mono);font-size:.68rem;color:var(--ash);
+  font-family:var(--f-mono);font-size:.68rem;color:var(--mist);
   border:1px solid var(--fence);padding:.2rem .55rem;border-radius:2px;
   background:var(--deep);transition:border-color .2s,color .2s;cursor:default;
 }
@@ -499,7 +499,7 @@ nav{
   font-family:var(--f-sans);font-size:.88rem;font-weight:500;
   color:var(--white);margin-bottom:.3rem;
 }
-.ev-d{font-size:.8rem;color:var(--ash);line-height:1.65}
+.ev-d{font-size:.8rem;color:var(--mist);line-height:1.65}
 
 /* ── FOOTER ── */
 .foot{
@@ -509,7 +509,7 @@ nav{
 }
 .foot-claim{
   background:var(--slab);padding:.85rem 3rem;
-  border-bottom:1px solid var(--fence);color:var(--haze);
+  border-bottom:1px solid var(--fence);color:var(--ash);
   display:flex;align-items:center;gap:.75rem;
 }
 .foot-claim-icon{color:var(--gold2);font-size:.85rem}
@@ -517,15 +517,37 @@ nav{
   max-width:1240px;margin:0 auto;padding:2.25rem 3rem;
   display:flex;align-items:center;justify-content:space-between;
 }
-.foot-sig{color:var(--haze)}
+.foot-sig{color:var(--fog)}
 .foot-sig strong{color:var(--veil);font-weight:400}
 .foot-links{display:flex;gap:0;border:1px solid var(--fence);border-radius:2px;overflow:hidden}
 .foot-link{
-  color:var(--fog);padding:.42rem 1rem;border-right:1px solid var(--fence);
+  color:var(--ash);padding:.42rem 1rem;border-right:1px solid var(--fence);
   transition:background .15s,color .15s;letter-spacing:.07em;text-transform:uppercase;font-size:.6rem;
 }
 .foot-link:last-child{border-right:none}
 .foot-link:hover{background:var(--layer);color:var(--gold)}
+
+/* ── SPEC TABLE ── */
+.spec-table{
+  width:100%;border-collapse:collapse;
+  margin:.85rem 0;font-family:var(--f-mono);font-size:.65rem;
+}
+.spec-table tr{border-bottom:1px solid var(--fence)}
+.spec-table tr:last-child{border-bottom:none}
+.spec-k{
+  color:var(--ash);padding:.45rem .6rem .45rem 0;
+  white-space:nowrap;width:110px;vertical-align:top;
+  padding-top:.5rem;
+}
+.spec-v{color:var(--mist);padding:.45rem 0;line-height:1.5}
+.spec-hi{color:var(--gold2)}
+.spec-tag{
+  display:inline-block;
+  border:1px solid var(--fence);background:var(--deep);
+  color:var(--ash);padding:.1rem .4rem;border-radius:2px;
+  font-size:.6rem;margin:0 .15rem .2rem 0;
+}
+
 
 /* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94)}
@@ -663,9 +685,10 @@ nav{
       <span class="hero-role lit-gold">Analytics Engineering</span>
     </div>
     <p class="hero-body">
-      I build <strong>Python, Django, SQL, and dbt analytics tools</strong> that turn operational data into reliable, decision-ready outputs —
-      KPI dashboards, BI-ready exports, tested dbt models, and data-quality-checked reporting across <strong>FX and FinTech domains.</strong>
-      15 years UK operational experience. Full work authorisation.
+      I build <strong>Python, Django, SQL, and dbt analytics tools</strong> that turn raw operational data into
+      reliable, decision-ready outputs — KPI dashboards, BI-ready exports, tested dbt models, and
+      data-quality-checked reporting across <strong>FX and FinTech domains.</strong>
+      15 years UK experience. Full work authorisation. Available immediately.
     </p>
     <div class="hero-chips">
       <span class="chip on">Python</span><span class="chip on">SQL</span>
@@ -676,8 +699,12 @@ nav{
     </div>
     <div class="hero-btns">
       <a class="btn-a" href="https://github.com/aminul-portfolio" target="_blank">⬡ GitHub portfolio</a>
-      <a class="btn-b" href="https://linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
-      <a class="btn-b" href="#" onclick="openEmail();return false;">Email</a>
+      <a class="btn-b" href="https://www.linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
+      <a class="btn-b" href="#" onclick="openEmail();return false;">Get in touch</a>
+    </div>
+    <div class="hm-strip">
+      <span class="hm-dot"></span>
+      <span class="hm-text">Available now · London, Remote, or Hybrid · No sponsorship required</span>
     </div>
   </div>
   <div class="hero-r">
@@ -730,7 +757,7 @@ nav{
 <div class="sec rv" id="pipeline">
 <div class="sec-in">
   <div class="sec-eyebrow">
-    <span class="sec-num">01</span>
+    <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">01</span>
     <div class="sec-rule"></div>
     <span class="sec-tag">analytics workflow</span>
   </div>
@@ -757,12 +784,12 @@ nav{
 <div class="sec rv" id="projects">
 <div class="sec-in">
   <div class="sec-eyebrow">
-    <span class="sec-num">02</span>
+    <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">02</span>
     <div class="sec-rule"></div>
     <span class="sec-tag">portfolio evidence</span>
   </div>
   <h2 class="sec-h">Analytics engineering<br>evidence base</h2>
-  <p class="sec-sub">Every project is public, tested, and claim-safe. All use seeded or public demo data.</p>
+  <p class="sec-sub">Every project is public, tested, and claim-safe — no overclaiming, no fake features. Each one uses seeded or public demo data and can be cloned and run by any reviewer. The featured project, bakeops-dbt, demonstrates the full Analytics Engineering stack: dbt, DuckDB, staging models, intermediate business logic, and tested marts.</p>
   <div class="proj-grid rv rv-d1">
     <div class="pc featured">
       <div>
@@ -770,11 +797,16 @@ nav{
           <a class="pc-name" href="https://github.com/aminul-portfolio/bakeops-dbt" target="_blank">bakeops-dbt</a>
           <span class="pc-badge b-ae">Analytics Engineering</span>
         </div>
-        <p class="pc-body">dbt and DuckDB analytics engineering project transforming BakeOps Intelligence CSV exports into tested product-performance marts across staging, intermediate, and mart layers. Preserves the BakeOps signature insight end-to-end. Local DuckDB only — no cloud warehouse, no orchestration, no production claim.</p>
+        <p class="pc-body">dbt + DuckDB analytics engineering project transforming BakeOps Intelligence CSV exports into tested product-performance marts. Preserves the BakeOps signature insight across three implementations: Django → SQL evidence layer → dbt mart.</p>
+        <table class="spec-table">
+          <tr><td class="spec-k">Staging</td><td class="spec-v"><span class="spec-tag">stg_orders</span> <span class="spec-tag">stg_order_items</span> <span class="spec-tag">stg_snapshot</span></td></tr>
+          <tr><td class="spec-k">Intermediate</td><td class="spec-v"><span class="spec-tag">int_product_revenue</span> <span class="spec-tag">int_product_margins</span></td></tr>
+          <tr><td class="spec-k">Mart</td><td class="spec-v"><span class="spec-tag">mart_product_performance</span> <span class="spec-tag">mart_rank_inversion</span></td></tr>
+          <tr><td class="spec-k">Tests</td><td class="spec-v spec-hi">26 passing · PASS=33 WARN=0 ERROR=0</td></tr>
+          <tr><td class="spec-k">Release</td><td class="spec-v spec-hi">v1.0.1 · local DuckDB · no cloud</td></tr>
+        </table>
         <div class="pc-pills" style="margin-top:1rem">
-          <span class="pp">dbt Core</span><span class="pp">DuckDB</span><span class="pp">7 models</span>
-          <span class="pp">26 tests</span><span class="pp">v1.0.1</span><span class="pp">staging → mart</span>
-          <span class="pp">schema.yml</span><span class="pp">sources.yml</span>
+          <span class="pp">dbt Core</span><span class="pp">DuckDB</span><span class="pp">schema.yml</span><span class="pp">sources.yml</span>
         </div>
         <a class="pc-lnk" href="https://github.com/aminul-portfolio/bakeops-dbt" target="_blank">github.com/aminul-portfolio/bakeops-dbt</a>
       </div>
@@ -793,8 +825,14 @@ nav{
         <a class="pc-name" href="https://github.com/aminul-portfolio/bakeops-intelligence" target="_blank">BakeOps Intelligence</a>
         <span class="pc-badge b-dj">Django</span>
       </div>
-      <p class="pc-body">Django analytics platform with KPI dashboards, gold-layer metric snapshots, BI-ready CSV exports, data-quality review, product profitability, ingredient risk, and waste analysis.</p>
-      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Python</span><span class="pp">KPI dashboards</span><span class="pp">gold-layer</span><span class="pp">BI exports</span></div>
+      <p class="pc-body">Django analytics platform for bakery operations with deterministic metric pipelines, gold-layer snapshots, and reviewer-verifiable BI exports.</p>
+      <table class="spec-table">
+        <tr><td class="spec-k">Dashboards</td><td class="spec-v">KPI cards · gold-layer metric snapshots</td></tr>
+        <tr><td class="spec-k">Exports</td><td class="spec-v">BI-ready CSV · 11 export contracts</td></tr>
+        <tr><td class="spec-k">Quality</td><td class="spec-v">Data-quality review · lineage docs</td></tr>
+        <tr><td class="spec-k">Tests</td><td class="spec-v spec-hi">37 automated tests</td></tr>
+      </table>
+      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Python</span><span class="pp">Plotly</span><span class="pp">gold-layer</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/bakeops-intelligence" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
@@ -802,8 +840,13 @@ nav{
         <a class="pc-name" href="https://github.com/aminul-portfolio/databridge-market-api" target="_blank">DataBridge Market API</a>
         <span class="pc-badge b-ft">FinTech</span>
       </div>
-      <p class="pc-body">Multi-source market data ingestion platform with ETL workflows, normalised storage, run logging, and a read-only API layer for analyst-facing data consumption.</p>
-      <div class="pc-pills"><span class="pp">yfinance</span><span class="pp">ccxt</span><span class="pp">TwelveData</span><span class="pp">ETL</span><span class="pp">REST API</span></div>
+      <p class="pc-body">Multi-source market data ingestion with ETL workflows, normalised storage, and a read-only API layer for analyst-facing consumption.</p>
+      <table class="spec-table">
+        <tr><td class="spec-k">Sources</td><td class="spec-v"><span class="spec-tag">yfinance</span> <span class="spec-tag">ccxt</span> <span class="spec-tag">TwelveData</span></td></tr>
+        <tr><td class="spec-k">Storage</td><td class="spec-v">Normalised models · run logging</td></tr>
+        <tr><td class="spec-k">Delivery</td><td class="spec-v">Read-only JSON API layer</td></tr>
+      </table>
+      <div class="pc-pills"><span class="pp">Python</span><span class="pp">ETL</span><span class="pp">REST API</span><span class="pp">Django</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/databridge-market-api" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
@@ -811,8 +854,13 @@ nav{
         <a class="pc-name" href="https://github.com/aminul-portfolio/tradeintel-360" target="_blank">TradeIntel 360</a>
         <span class="pc-badge b-ft">FinTech</span>
       </div>
-      <p class="pc-body">Post-trade analytics with a 17-metric KPI engine, configurable Excel exports with optional KPI sheet, PDF reporting, and session-driven analysis workflow.</p>
-      <div class="pc-pills"><span class="pp">Pandas</span><span class="pp">Plotly</span><span class="pp">17 KPIs</span><span class="pp">openpyxl</span><span class="pp">PDF</span></div>
+      <p class="pc-body">Post-trade performance analytics with a 17-metric KPI engine and configurable reporting exports.</p>
+      <table class="spec-table">
+        <tr><td class="spec-k">Analytics</td><td class="spec-v spec-hi">17-metric KPI engine</td></tr>
+        <tr><td class="spec-k">Exports</td><td class="spec-v">Excel · optional KPI sheet · PDF</td></tr>
+        <tr><td class="spec-k">Workflow</td><td class="spec-v">Session-driven CSV upload</td></tr>
+      </table>
+      <div class="pc-pills"><span class="pp">Pandas</span><span class="pp">Plotly</span><span class="pp">openpyxl</span><span class="pp">xhtml2pdf</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/tradeintel-360" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
@@ -820,7 +868,12 @@ nav{
         <a class="pc-name" href="https://github.com/aminul-portfolio/marketvista-dashboard" target="_blank">MarketVista Dashboard</a>
         <span class="pc-badge b-ft">FinTech</span>
       </div>
-      <p class="pc-body">Market monitoring layer with severity-ranked signals, watchlists, threshold alerts, and OHLC-backed asset inspection across FX and equity data.</p>
+      <p class="pc-body">Market monitoring and analyst visibility layer across FX and equity data with intelligent signal ranking.</p>
+      <table class="spec-table">
+        <tr><td class="spec-k">Signals</td><td class="spec-v">Severity-ranked signal logic</td></tr>
+        <tr><td class="spec-k">Monitoring</td><td class="spec-v">Watchlists · threshold alerts</td></tr>
+        <tr><td class="spec-k">Inspection</td><td class="spec-v">OHLC-backed asset visibility</td></tr>
+      </table>
       <div class="pc-pills"><span class="pp">Django</span><span class="pp">Plotly</span><span class="pp">signals</span><span class="pp">watchlists</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/marketvista-dashboard" target="_blank">view on GitHub</a>
     </div>
@@ -829,9 +882,28 @@ nav{
         <a class="pc-name" href="https://github.com/aminul-portfolio/riskwise-planner" target="_blank">RiskWise Planner</a>
         <span class="pc-badge b-ft">FinTech</span>
       </div>
-      <p class="pc-body">Pre-trade risk planning with Monte Carlo simulation, downside-aware scenario modelling, and capital-preservation decision support for trading workflows.</p>
-      <div class="pc-pills"><span class="pp">Monte Carlo</span><span class="pp">scenarios</span><span class="pp">risk/reward</span><span class="pp">Django</span></div>
+      <p class="pc-body">Pre-trade risk planning and scenario modelling for capital-preservation decision support.</p>
+      <table class="spec-table">
+        <tr><td class="spec-k">Simulation</td><td class="spec-v">Monte Carlo scenario engine</td></tr>
+        <tr><td class="spec-k">Analysis</td><td class="spec-v">Downside-aware risk review</td></tr>
+        <tr><td class="spec-k">Output</td><td class="spec-v">Capital-preservation decisions</td></tr>
+      </table>
+      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Monte Carlo</span><span class="pp">scenarios</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/riskwise-planner" target="_blank">view on GitHub</a>
+    </div>
+    <div class="pc">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
+        <a class="pc-name" href="https://github.com/aminul-portfolio/careerfunnel-tracker" target="_blank">CareerFunnel Tracker</a>
+        <span class="pc-badge b-dj">Django</span>
+      </div>
+      <p class="pc-body">Manual career intelligence and application-tracking platform with funnel metrics and document workflows.</p>
+      <table class="spec-table">
+        <tr><td class="spec-k">Tracking</td><td class="spec-v">Funnel metrics · source performance</td></tr>
+        <tr><td class="spec-k">Workflows</td><td class="spec-v">CV A/B testing · Document Pack</td></tr>
+        <tr><td class="spec-k">Tests</td><td class="spec-v spec-hi">828 automated tests · Sprint 60</td></tr>
+      </table>
+      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Python</span><span class="pp">828 tests</span></div>
+      <a class="pc-lnk" href="https://github.com/aminul-portfolio/careerfunnel-tracker" target="_blank">view on GitHub</a>
     </div>
   </div>
 </div>
@@ -841,11 +913,33 @@ nav{
 <div class="sec rv" id="stack">
 <div class="sec-in">
   <div class="sec-eyebrow">
-    <span class="sec-num">03</span>
+    <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">03</span>
     <div class="sec-rule"></div>
     <span class="sec-tag">technical stack</span>
   </div>
   <h2 class="sec-h">Skills and tooling</h2>
+  <div class="bring-grid rv">
+    <div class="bring-cell">
+      <div class="bring-icon">◈</div>
+      <div class="bring-title">Analytics Engineering</div>
+      <div class="bring-body">dbt models, DuckDB, SQL window functions, dimensional modelling, data quality tests, mart design, lineage documentation</div>
+    </div>
+    <div class="bring-cell">
+      <div class="bring-icon">▦</div>
+      <div class="bring-title">Data Analysis & Reporting</div>
+      <div class="bring-body">Python, Pandas, Plotly, Excel, Power Query, DAX, KPI dashboards, BI-ready CSV exports, PDF reports</div>
+    </div>
+    <div class="bring-cell">
+      <div class="bring-icon">⬡</div>
+      <div class="bring-title">Domain Knowledge</div>
+      <div class="bring-body">15 years FX and money transfer operations, daily reconciliation, AML procedures, KPI reporting, software platform support</div>
+    </div>
+    <div class="bring-cell">
+      <div class="bring-icon">▸</div>
+      <div class="bring-title">Delivery Discipline</div>
+      <div class="bring-body">Sprint-based development, claim-safe documentation, evidence-first commits, 828 automated tests across projects</div>
+    </div>
+  </div>
   <div class="stack-grid rv rv-d1">
     <div class="sg-cell"><p class="sg-cat">Analytics Engineering</p><div class="sg-items"><span class="sg-item prime">dbt Core</span><span class="sg-item prime">DuckDB</span><span class="sg-item prime">SQL</span><span class="sg-item">dimensional modelling</span><span class="sg-item">data quality</span><span class="sg-item">mart design</span></div></div>
     <div class="sg-cell"><p class="sg-cat">Data Processing</p><div class="sg-items"><span class="sg-item prime">Python</span><span class="sg-item prime">Pandas</span><span class="sg-item">NumPy</span><span class="sg-item">openpyxl</span><span class="sg-item">Plotly</span><span class="sg-item">Chart.js</span><span class="sg-item">xhtml2pdf</span></div></div>
@@ -862,16 +956,17 @@ nav{
 <div class="bgsec-in">
   <div>
     <div class="sec-eyebrow" style="margin-bottom:2.5rem">
-      <span class="sec-num">04</span>
+      <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">04</span>
       <div class="sec-rule"></div>
       <span class="sec-tag">background</span>
     </div>
     <h2 class="sec-h" style="font-size:clamp(2rem,4vw,3rem)">15 years UK operational<br>experience</h2>
-    <p style="color:var(--ash);font-size:.88rem;line-height:1.85;max-width:420px;margin-top:1.25rem">Before the portfolio transition I worked across FX operations, money transfer, and software platform support — building real reconciliation systems, producing monthly KPI reports, and bridging non-technical users with development teams. That domain knowledge is applied directly to the FinTech analytics projects.</p>
+    <p style="color:var(--mist);font-size:.88rem;line-height:1.85;max-width:420px;margin-top:1.25rem">Before the portfolio transition I worked across FX operations, money transfer, and software platform support — building an in-house multi-currency reconciliation system, producing monthly stakeholder KPI reports across 800 agents, and acting as the technical bridge between non-technical users and development teams.</p>
+    <p style="color:var(--mist);font-size:.88rem;line-height:1.85;max-width:420px;margin-top:1rem">That operational knowledge shapes every analytics project I build. When I model FX data or define a KPI, I understand what it means in practice — not just what the column contains.</p>
     <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:.7rem">
-      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--ash)"><span style="color:var(--gold)">▸</span>Targeting Data Analyst, BI Analyst, Reporting Analyst, Junior AE roles</div>
-      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--ash)"><span style="color:var(--gold)">▸</span>London · Remote · Hybrid · No sponsorship required</div>
-      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--ash)"><span style="color:var(--gold)">▸</span>BA Business Management &amp; Entrepreneurship in progress (LCCA)</div>
+      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--mist)"><span style="color:var(--gold)">▸</span>Targeting Data Analyst, BI Analyst, Reporting Analyst, Junior AE roles</div>
+      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--mist)"><span style="color:var(--gold)">▸</span>London · Remote · Hybrid · No sponsorship required</div>
+      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--mist)"><span style="color:var(--gold)">▸</span>BA Business Management &amp; Entrepreneurship in progress (LCCA)</div>
     </div>
   </div>
   <div class="ev-grid rv rv-d2">
@@ -884,6 +979,13 @@ nav{
 
 <!-- FOOTER -->
 <div class="foot">
+  <div class="foot-cta">
+    <div class="foot-cta-text">
+      <strong>Open to Data Analyst, BI Analyst, Reporting Analyst, and Junior Analytics Engineer roles.</strong>
+      London · Remote · Hybrid · No sponsorship required.
+    </div>
+    <a class="foot-cta-btn" href="#" onclick="openEmail();return false;">Get in touch ↗</a>
+  </div>
   <div class="foot-claim"><span class="foot-claim-icon">⚠</span>All portfolio projects use seeded demo data. bakeops-dbt is a local DuckDB project — no cloud warehouse, no orchestration, no production deployment or live customers.</div>
   <div class="foot-main">
     <div class="foot-sig"><strong>Aminul Islam</strong> · Data Analyst · BI Analyst · Junior Analytics Engineer · London, UK</div>
