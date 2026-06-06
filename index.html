@@ -3,907 +3,903 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aminul Islam — Analytics Engineering</title>
+<title>Aminul Islam — Analytics Engineering Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Geist+Mono:wght@300;400;500&family=Geist:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --void:#0d1117;
-  --deep:#0a0f14;
-  --slab:#161b22;
-  --layer:#1c2128;
-  --shelf:#21262d;
-  --fence:#30363d;
-  --dim2:#373e47;
-  --dim3:#444c56;
-  --haze:#545d68;
-  --fog:#556070;
-  --ash:#7a8799;
-  --mist:#9aaabb;
-  --veil:#c0ccda;
-  --pale:#dce6f0;
-  --snow:#eef4fa;
-  --white:#f6faff;
-  --gold:#e8d5a3;
-  --gold2:#c9b47a;
-  --gold3:rgba(232,213,163,.15);
-  --gold4:rgba(232,213,163,.06);
-  --gold5:rgba(232,213,163,.35);
-  --glow:rgba(232,213,163,.08);
-  --f-serif:'Playfair Display',serif;
-  --f-mono:'Geist Mono',monospace;
-  --f-sans:'Geist',sans-serif;
+  --cream:#fffef9;
+  --warm:#f7f5ef;
+  --stone:#ede9e0;
+  --stone2:#e0dbd0;
+  --border:#d8d3c8;
+  --border2:#c8c2b5;
+  --ink:#1a1814;
+  --ink2:#3d3a35;
+  --ink3:#6b6760;
+  --ink4:#9c9890;
+  --gold:#92400e;
+  --gold-mid:#b45309;
+  --gold-lt:#fef3c7;
+  --gold-brd:#fde68a;
+  --emerald:#065f46;
+  --emerald-lt:#ecfdf5;
+  --emerald-brd:#a7f3d0;
+  --crimson:#991b1b;
+  --sapphire:#1e40af;
+  --sapphire-lt:#eff6ff;
+  --term:#0c0e14;
+  --term2:#151820;
+  --f-display:'Playfair Display',serif;
+  --f-body:'DM Sans',sans-serif;
+  --f-mono:'DM Mono',monospace;
+  --r:6px;
+  --r-lg:10px;
+  --r-xl:16px;
+  --sh-sm:0 1px 2px rgba(26,24,20,.06),0 1px 3px rgba(26,24,20,.04);
+  --sh-md:0 4px 16px rgba(26,24,20,.08),0 2px 6px rgba(26,24,20,.04);
+  --sh-lg:0 16px 48px rgba(26,24,20,.10),0 4px 12px rgba(26,24,20,.05);
+  --sh-xl:0 24px 64px rgba(26,24,20,.12),0 8px 20px rgba(26,24,20,.06);
 }
-html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:60px}
+
+html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:68px}
 body{
-  background:var(--void);color:var(--veil);
-  font-family:var(--f-sans);font-weight:300;
-  line-height:1.65;overflow-x:hidden;
+  background:var(--cream);color:var(--ink);
+  font-family:var(--f-body);font-weight:400;line-height:1.65;
+  overflow-x:hidden;
 }
 a{text-decoration:none;color:inherit}
 
-/* ── CURSOR ── */
-.cursor{
-  position:fixed;width:8px;height:8px;border-radius:50%;
-  background:var(--gold);pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .2s,height .2s,background .2s,opacity .3s;
-  mix-blend-mode:difference;
-}
-.cursor-ring{
-  position:fixed;width:36px;height:36px;border-radius:50%;
-  border:1px solid rgba(232,213,163,.4);pointer-events:none;z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:width .4s cubic-bezier(.25,.46,.45,.94),height .4s cubic-bezier(.25,.46,.45,.94),transform .1s;
-}
-.cursor.expanded{width:48px;height:48px;background:transparent;border:1px solid var(--gold)}
-.cursor-ring.expanded{width:80px;height:80px;border-color:var(--gold5)}
-
-/* ── CANVAS BG ── */
-#bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35}
-
-/* ── GRAIN ── */
-.grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:120px 120px;
+/* dot grid bg */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,var(--stone) 1px,transparent 1px);
+  background-size:28px 28px;opacity:.5;
 }
 
-/* ── NAV ── */
+/* ─── NAV ─── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:60px;display:flex;align-items:center;
-  padding:0 3rem;justify-content:space-between;
-  background:rgba(13,17,23,.88);backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--fence);
+  position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
+  background:rgba(255,254,249,.94);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;
 }
-.nav-mark{
-  font-family:var(--f-mono);font-size:.7rem;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--mist);
+.nav-brand{
   display:flex;align-items:center;gap:.75rem;
+  font-family:var(--f-display);font-size:1.125rem;font-weight:600;
+  letter-spacing:-.025em;color:var(--ink);
 }
-.nav-mark-line{width:20px;height:1px;background:var(--gold)}
-.nav-mark-live{
-  display:flex;align-items:center;gap:.4rem;
-  font-size:.62rem;color:var(--gold2);
+.nav-brand-mark{
+  width:30px;height:30px;border-radius:6px;
+  background:var(--ink);display:flex;align-items:center;justify-content:center;
+  font-size:.6875rem;font-family:var(--f-mono);font-weight:500;
+  color:var(--cream);letter-spacing:.02em;
 }
-.nav-mark-dot{
-  width:5px;height:5px;border-radius:50%;background:var(--gold);
-  animation:breathe 2s ease-in-out infinite;
+.nav-links{display:flex;align-items:center;gap:.125rem}
+.nav-a{
+  font-size:.8125rem;font-weight:500;color:var(--ink3);
+  padding:.4rem .875rem;border-radius:var(--r);
+  transition:background .15s,color .15s;
 }
-@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
-.nav-links{display:flex;align-items:center;gap:0;border:1px solid var(--fence);border-radius:3px;overflow:hidden}
-.nav-link{
-  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ash);
-  padding:.4rem 1rem;border-right:1px solid var(--fence);
-  transition:color .2s,background .2s;
-}
-.nav-link:last-child{border-right:none}
-.nav-link:hover{color:var(--gold);background:var(--glow)}
-.nav-contact{
-  font-family:var(--f-mono);font-size:.68rem;font-weight:500;
-  letter-spacing:.06em;color:var(--void);
-  background:var(--gold);padding:.38rem .9rem;border-radius:2px;
-  transition:opacity .2s;
-}
-.nav-contact:hover{opacity:.85}
-
-/* ── HERO ── */
-.hero{
-  position:relative;z-index:2;
-  min-height:100vh;padding-top:60px;
-  display:grid;grid-template-columns:1fr 460px;
-  border-bottom:1px solid var(--fence);
-}
-.hero-l{
-  padding:7rem 4rem 7rem 3rem;
-  border-right:1px solid var(--fence);
-  display:flex;flex-direction:column;justify-content:center;
-  position:relative;
-}
-.hero-l::after{
-  content:'';position:absolute;top:7rem;left:3rem;
-  width:1px;height:120px;background:linear-gradient(to bottom,var(--gold),transparent);
-}
-.hero-tag{
-  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--gold2);
-  margin-bottom:3rem;padding-left:1.75rem;position:relative;
-}
-.hero-tag::before{
-  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
-  width:1rem;height:1px;background:var(--gold2);
-}
-.hero-name{
-  font-family:var(--f-serif);
-  font-size:clamp(4rem,7vw,7rem);
-  font-weight:900;line-height:.9;
-  letter-spacing:-.02em;color:var(--white);
-  margin-bottom:1.5rem;
-}
-.hero-name em{
-  font-style:italic;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.hero-roles{
-  display:flex;flex-direction:column;gap:.2rem;
-  margin-bottom:3rem;
-}
-.hero-role{
-  font-family:var(--f-serif);
-  font-size:clamp(1.5rem,3vw,2.4rem);
-  font-weight:400;letter-spacing:-.01em;
-  color:transparent;
-  -webkit-text-stroke:1px var(--dim3);
-  transition:color .4s,-webkit-text-stroke .4s;
-  cursor:default;line-height:1.1;
-}
-.hero-role:hover,.hero-role.lit{
-  color:var(--veil);
-  -webkit-text-stroke:0px transparent;
-}
-.hero-role.lit-gold{
-  color:var(--gold);
-  -webkit-text-stroke:0px transparent;
-}
-.hero-body{
-  font-size:.88rem;color:var(--veil);line-height:1.85;
-  max-width:440px;margin-bottom:2.5rem;
-  padding-left:1.25rem;border-left:1px solid var(--fence);
-}
-.hero-body strong{color:var(--white);font-weight:400}
-.hero-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:3rem}
-.chip{
-  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.05em;
-  padding:.22rem .6rem;border:1px solid var(--fence);
-  border-radius:2px;color:var(--fog);
-  transition:border-color .2s,color .2s,background .2s;cursor:default;
-}
-.chip:hover,.chip.on{border-color:rgba(232,213,163,.3);color:var(--gold);background:var(--gold4)}
-.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn-a{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--f-mono);font-size:.72rem;font-weight:500;
-  letter-spacing:.05em;padding:.6rem 1.3rem;
-  background:var(--gold);color:var(--void);border-radius:2px;
-  transition:opacity .2s;
-}
-.btn-a:hover{opacity:.88}
-.btn-b{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;
-  padding:.6rem 1.3rem;border:1px solid var(--fence);
-  color:var(--veil);border-radius:2px;background:transparent;
-  transition:border-color .2s,background .2s,color .2s;
-}
-.btn-b:hover{border-color:var(--haze);background:var(--layer);color:var(--white)}
-
-/* ── HERO RIGHT ── */
-.hero-r{display:flex;flex-direction:column}
-.term-wrap{
-  flex:1;padding:1.75rem;
-  font-family:var(--f-mono);font-size:.7rem;
-  border-bottom:1px solid var(--fence);
-  background:var(--deep);
-}
-.term-chrome{
+.nav-a:hover{background:var(--warm);color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:.875rem}
+.nav-status{
   display:flex;align-items:center;gap:.5rem;
-  margin-bottom:1.5rem;padding-bottom:1.25rem;
-  border-bottom:1px solid var(--fence);
+  font-size:.8125rem;font-weight:500;color:var(--emerald);
+  background:var(--emerald-lt);border:1px solid var(--emerald-brd);
+  padding:.3rem .75rem;border-radius:100px;
 }
-.t-dot{width:9px;height:9px;border-radius:50%}
-.t-dot.r{background:#ff5f57}.t-dot.y{background:#febc2e}.t-dot.g{background:#28c840}
-.t-file{
-  margin-left:auto;font-size:.62rem;letter-spacing:.06em;color:var(--haze);
-  border:1px solid var(--fence);padding:.15rem .5rem;border-radius:2px;
+.nav-status-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--emerald);
+  animation:breathe 2.5s ease-in-out infinite;
 }
-.tl{display:flex;gap:.5rem;margin-bottom:.35rem;line-height:1.5}
-.tl-prompt{color:var(--gold2);flex-shrink:0}
-.tl-path{color:var(--ash)}
-.tl-cmd{color:var(--white)}
-.tl-ok{color:var(--gold)}
-.tl-dim{color:var(--fog)}
-.tl-key{color:var(--veil)}
-.tl-num{color:var(--gold2)}
-.tl-sp{height:.5rem}
-.tl-cursor{
-  display:inline-block;width:7px;height:12px;
-  background:var(--gold);margin-left:2px;
-  animation:blk 1s step-end infinite;vertical-align:middle;
+@keyframes breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.nav-btn{
+  font-size:.8125rem;font-weight:600;color:var(--cream);
+  background:var(--ink);padding:.45rem 1.125rem;border-radius:var(--r);
+  transition:opacity .15s;box-shadow:var(--sh-sm);
 }
-@keyframes blk{0%,100%{opacity:1}50%{opacity:0}}
+.nav-btn:hover{opacity:.85}
 
-.data-pane{
-  padding:1.5rem;background:var(--slab);
+/* ─── HERO ─── */
+.hero{
+  position:relative;z-index:1;
+  max-width:1220px;margin:0 auto;
+  padding:calc(68px + 6rem) 3rem 6rem;
+  display:grid;grid-template-columns:1fr 500px;
+  gap:5rem;align-items:center;
 }
-.dp-label{
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--fog);
+.hero-label{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--f-mono);font-size:.6875rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold-mid);background:var(--gold-lt);
+  border:1px solid var(--gold-brd);padding:.3rem .75rem;border-radius:100px;
+  margin-bottom:2.25rem;
+}
+.hero-h1{
+  font-family:var(--f-display);
+  font-size:clamp(3rem,5.5vw,5.25rem);
+  font-weight:700;line-height:1.0;letter-spacing:-.04em;
+  color:var(--ink);margin-bottom:1.75rem;
+}
+.hero-h1 em{font-style:italic;font-weight:400;color:var(--ink3)}
+.hero-h1 .hl{
+  color:var(--gold);position:relative;display:inline-block;
+}
+.hero-h1 .hl::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;
+  background:var(--gold-brd);border-radius:1px;
+}
+.hero-p{
+  font-size:1.0625rem;color:var(--ink2);line-height:1.8;
+  max-width:500px;margin-bottom:2.5rem;
+}
+.hero-p strong{color:var(--ink);font-weight:600}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2.5rem}
+.hchip{
+  font-family:var(--f-mono);font-size:.6875rem;font-weight:500;
+  color:var(--ink2);background:var(--warm);
+  border:1px solid var(--border);padding:.25rem .65rem;border-radius:var(--r);
+  transition:border-color .15s,color .15s,background .15s;
+}
+.hchip:hover{border-color:var(--border2);color:var(--ink);background:var(--stone)}
+.hchip.lit{
+  color:var(--gold);background:var(--gold-lt);border-color:var(--gold-brd);
+}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.5rem}
+.btn-p{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.875rem;font-weight:600;color:var(--cream);
+  background:var(--ink);padding:.625rem 1.375rem;border-radius:var(--r);
+  transition:opacity .15s;box-shadow:var(--sh-sm);
+}
+.btn-p:hover{opacity:.85}
+.btn-s{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.875rem;font-weight:500;color:var(--ink2);
+  background:var(--cream);border:1px solid var(--border2);
+  padding:.625rem 1.375rem;border-radius:var(--r);
+  transition:background .15s,border-color .15s;box-shadow:var(--sh-sm);
+}
+.btn-s:hover{background:var(--warm);border-color:var(--border2)}
+.hero-avail{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.8125rem;color:var(--ink4);
+}
+.avail-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--emerald);
+  animation:breathe 2.5s ease-in-out infinite;flex-shrink:0;
+}
+
+/* ─── HERO RIGHT ─── */
+.hero-r{display:flex;flex-direction:column;gap:1rem}
+.terminal{
+  background:var(--term);border:1px solid var(--term2);
+  border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-xl);
+}
+.term-bar{
+  display:flex;align-items:center;gap:.5rem;padding:1rem 1.125rem;
+  background:#0a0c12;border-bottom:1px solid var(--term2);
+}
+.tdot{width:10px;height:10px;border-radius:50%}
+.tdot.r{background:#ff5f57}.tdot.y{background:#febc2e}.tdot.g{background:#28c840}
+.term-title{
+  margin-left:auto;font-family:var(--f-mono);font-size:.625rem;font-weight:500;
+  color:#4a5568;background:#1a1e2e;border:1px solid #2d3748;
+  padding:.15rem .5rem;border-radius:4px;letter-spacing:.04em;
+}
+.term-body{
+  padding:1.25rem 1.125rem;
+  font-family:var(--f-mono);font-size:.6875rem;line-height:1.9;
+}
+.tl{display:flex;gap:.5rem;margin-bottom:.1rem}
+.t-pr{color:#c9b47a;flex-shrink:0}
+.t-pa{color:#7eb5ff}
+.t-cm{color:#e2e8f0}
+.t-ok{color:#68d391}
+.t-dm{color:#374151}
+.t-ky{color:#b5c0d0}
+.t-nm{color:#fbd38d}
+.t-sp{height:.625rem}
+.t-cu{
+  display:inline-block;width:7px;height:11px;
+  background:#e2e8f0;animation:blink 1s step-end infinite;
+  vertical-align:middle;margin-left:2px;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ─── INSIGHT CARD ─── */
+.ic{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);
+}
+.ic-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.875rem 1.125rem;background:var(--warm);border-bottom:1px solid var(--border);
+}
+.ic-top-lbl{font-family:var(--f-mono);font-size:.625rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink4)}
+.ic-top-badge{
+  font-family:var(--f-mono);font-size:.625rem;font-weight:600;
+  color:var(--gold-mid);background:var(--gold-lt);border:1px solid var(--gold-brd);
+  padding:.15rem .5rem;border-radius:100px;letter-spacing:.04em;
+}
+.ic-rows{padding:.25rem 0}
+.ic-r{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.5rem 1.125rem;border-bottom:1px solid var(--stone);
+  font-family:var(--f-mono);font-size:.6875rem;
+}
+.ic-r:last-child{border-bottom:none}
+.ic-k{color:var(--ink3)}
+.ic-v{font-weight:500;color:var(--ink)}
+.ic-v.em{color:var(--emerald)}
+.ic-v.go{color:var(--gold-mid)}
+.ic-v.cr{color:var(--crimson)}
+.ic-v.pill{
+  background:var(--gold-lt);border:1px solid var(--gold-brd);
+  color:var(--gold-mid);padding:.125rem .4rem;border-radius:4px;font-size:.625rem;
+}
+
+/* ─── METRICS BAR ─── */
+.metrics{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--cream);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.met{
+  padding:2.25rem 2.5rem;border-right:1px solid var(--border);
+  cursor:default;transition:background .2s;position:relative;overflow:hidden;
+}
+.met:last-child{border-right:none}
+.met:hover{background:var(--warm)}
+.met::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold-mid);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.25,.46,.45,.94);
+}
+.met:hover::after{transform:scaleX(1)}
+.met-num{
+  font-family:var(--f-display);font-size:2.75rem;font-weight:700;
+  letter-spacing:-.04em;color:var(--ink);line-height:1;margin-bottom:.4rem;
+}
+.met-num em{font-style:normal;color:var(--gold-mid);font-size:1.25rem;font-weight:600}
+.met-lbl{font-size:.875rem;font-weight:600;color:var(--ink2);margin-bottom:.2rem}
+.met-sub{font-family:var(--f-mono);font-size:.625rem;font-weight:400;color:var(--ink4)}
+
+/* ─── SECTIONS ─── */
+.sec{position:relative;z-index:1;border-bottom:1px solid var(--border)}
+.sec-in{max-width:1220px;margin:0 auto;padding:5.5rem 3rem}
+.sec-eyebrow{
   display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;
 }
-.dp-label::after{content:'';flex:1;height:1px;background:var(--fence)}
-.dp-status{
-  font-size:.58rem;padding:.12rem .4rem;border:1px solid rgba(232,213,163,.25);
-  color:var(--gold2);background:rgba(232,213,163,.06);border-radius:2px;
-  letter-spacing:.06em;
-}
-.dp-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:.45rem 0;border-bottom:1px solid var(--fence);
-  font-family:var(--f-mono);font-size:.7rem;
-}
-.dp-row:last-child{border-bottom:none}
-.dp-k{color:var(--ash)}
-.dp-v{font-weight:400}
-.dp-v.g{color:var(--gold)}
-.dp-v.a{
-  color:#d4a017;
-  border:1px solid rgba(212,160,23,.3);
-  padding:.1rem .35rem;border-radius:2px;
-  background:rgba(212,160,23,.06);
-}
-.dp-v.r{color:#e05252}
-
-/* ── NUMBERS ── */
-.nums{
-  position:relative;z-index:2;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-bottom:1px solid var(--fence);
-}
-.n-cell{
-  padding:2.5rem 2rem;border-right:1px solid var(--fence);
-  position:relative;overflow:hidden;
-  transition:background .3s;
-}
-.n-cell:last-child{border-right:none}
-.n-cell:hover{background:var(--deep)}
-.n-cell::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;
-  transition:transform .4s cubic-bezier(.25,.46,.45,.94);
-}
-.n-cell:hover::after{transform:scaleX(1)}
-.n-val{
-  font-family:var(--f-serif);
-  font-size:3rem;font-weight:700;
-  letter-spacing:-.03em;line-height:1;
-  color:var(--white);margin-bottom:.5rem;
-}
-.n-val em{font-style:normal;color:var(--gold);font-size:1.4rem}
-.n-key{
-  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--haze);
-}
-.n-sub{font-size:.78rem;color:var(--ash);margin-top:.25rem}
-
-/* ── SECTION SHELL ── */
-.sec{position:relative;z-index:2;border-bottom:1px solid var(--fence)}
-.sec-in{max-width:1240px;margin:0 auto;padding:6rem 3rem}
-.sec-eyebrow{
-  display:flex;align-items:center;gap:1.25rem;margin-bottom:4rem;
-}
 .sec-num{
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--gold2);
+  font-family:var(--f-display);font-size:4rem;font-weight:700;
+  letter-spacing:-.06em;color:var(--stone2);line-height:1;
+  flex-shrink:0;
 }
-.sec-rule{flex:1;height:1px;background:var(--fence)}
 .sec-tag{
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--fog);
+  font-family:var(--f-mono);font-size:.6875rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);
+  display:flex;align-items:center;gap:.5rem;
 }
-.sec-h{
-  font-family:var(--f-serif);
-  font-size:clamp(2.5rem,5vw,4rem);
-  font-weight:700;letter-spacing:-.03em;
-  color:var(--white);margin-bottom:1rem;line-height:1.05;
+.sec-tag::before{content:'';width:20px;height:1px;background:var(--border2)}
+.sec-h2{
+  font-family:var(--f-display);font-size:clamp(2rem,3.75vw,3rem);
+  font-weight:700;letter-spacing:-.03em;color:var(--ink);
+  margin-bottom:.875rem;line-height:1.1;
 }
-.sec-sub{color:var(--mist);font-size:.88rem;max-width:480px;line-height:1.8}
+.sec-sub{
+  font-size:.9375rem;color:var(--ink3);max-width:520px;line-height:1.8;
+}
 
-/* ── PIPELINE ── */
-.pipe{
-  border:1px solid var(--fence);border-radius:4px;overflow:hidden;
-  margin-top:3.5rem;
+/* ─── PIPELINE ─── */
+.pipe-wrap{
+  border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;
+  margin-top:3rem;box-shadow:var(--sh-sm);background:var(--cream);
 }
-.pipe-track{
-  display:flex;background:var(--slab);
-  border-bottom:1px solid var(--fence);
-}
+.pipe-track{display:flex;border-bottom:1px solid var(--border)}
 .pn{
-  flex:1;padding:1.75rem 1.5rem;border-right:1px solid var(--fence);
+  flex:1;padding:1.75rem 1.375rem;border-right:1px solid var(--border);
   position:relative;transition:background .2s;
 }
 .pn:last-child{border-right:none}
-.pn:hover{background:var(--layer)}
-.pn-n{
-  font-family:var(--f-mono);font-size:.58rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--haze);margin-bottom:.75rem;
-  display:flex;align-items:center;gap:.4rem;
+.pn:hover{background:var(--warm)}
+.pn-step{
+  display:flex;align-items:center;gap:.375rem;
+  font-family:var(--f-mono);font-size:.5625rem;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:.75rem;
 }
 .pn-badge{
-  width:18px;height:18px;border:1px solid var(--fence);
-  border-radius:2px;display:flex;align-items:center;justify-content:center;
-  font-size:.58rem;color:var(--fog);background:var(--deep);
+  width:18px;height:18px;border-radius:4px;
+  background:var(--warm);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.5625rem;color:var(--ink3);
 }
 .pn-name{
-  font-family:var(--f-serif);font-size:1rem;font-weight:700;
-  color:var(--white);margin-bottom:.35rem;
+  font-size:.9375rem;font-weight:600;color:var(--ink);margin-bottom:.375rem;
 }
-.pn-detail{font-family:var(--f-mono);font-size:.65rem;color:var(--mist);line-height:1.6}
+.pn-detail{font-family:var(--f-mono);font-size:.625rem;color:var(--ink3);line-height:1.7}
 .pn-arr{
-  position:absolute;right:-11px;top:50%;transform:translateY(-50%);
-  z-index:2;width:22px;height:22px;
-  border:1px solid var(--fence);border-radius:50%;
-  background:var(--slab);display:flex;align-items:center;justify-content:center;
-  font-size:.65rem;color:var(--haze);
+  position:absolute;right:-11px;top:50%;transform:translateY(-50%);z-index:2;
+  width:22px;height:22px;background:var(--cream);border:1px solid var(--border);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.625rem;color:var(--ink4);
 }
 .pn:last-child .pn-arr{display:none}
 .pipe-foot{
-  display:flex;gap:2.5rem;padding:1.1rem 1.5rem;
-  background:var(--void);border-top:1px solid var(--fence);
+  display:flex;flex-wrap:wrap;gap:2rem;padding:1rem 1.375rem;
+  background:var(--warm);
 }
-.pf-item{display:flex;align-items:center;gap:.45rem;font-family:var(--f-mono);font-size:.62rem;color:var(--ash)}
-.pf-dot{width:5px;height:5px;border-radius:50%}
+.pl{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:var(--ink3)}
+.pl-dot{width:7px;height:7px;border-radius:50%}
 
-/* ── PROJECTS ── */
+/* ─── PROJECTS ─── */
+.proj-featured{
+  border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--sh-lg);background:var(--cream);margin-top:3rem;
+}
+.pf-top{
+  display:grid;grid-template-columns:1fr 360px;
+  border-bottom:1px solid var(--border);
+}
+.pf-left{padding:2.25rem 2.5rem;border-right:1px solid var(--border)}
+.pf-right{padding:1.75rem;background:var(--warm)}
+.pf-badge{
+  display:inline-flex;align-items:center;gap:.375rem;
+  font-family:var(--f-mono);font-size:.625rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--gold-mid);background:var(--gold-lt);border:1px solid var(--gold-brd);
+  padding:.25rem .625rem;border-radius:100px;margin-bottom:1.125rem;
+}
+.pf-name{
+  font-family:var(--f-display);font-size:1.625rem;font-weight:700;
+  letter-spacing:-.03em;color:var(--ink);margin-bottom:.625rem;
+  transition:color .15s;display:inline-block;
+}
+.pf-name:hover{color:var(--gold-mid)}
+.pf-ver{
+  font-family:var(--f-mono);font-size:.75rem;font-weight:400;
+  color:var(--ink4);margin-left:.5rem;
+}
+.pf-desc{font-size:.9rem;color:var(--ink3);line-height:1.75;margin-bottom:1.375rem}
+.spec-tbl{width:100%;border-collapse:collapse;margin-bottom:1.375rem}
+.spec-tbl tr{border-bottom:1px solid var(--border)}
+.spec-tbl tr:last-child{border-bottom:none}
+.spec-tbl td{padding:.5rem 0;vertical-align:top;font-size:.8125rem}
+.stk{
+  font-family:var(--f-mono);font-size:.6875rem;font-weight:500;
+  color:var(--ink4);width:100px;padding-top:.55rem;
+}
+.stv{color:var(--ink2)}
+.stv .t{
+  display:inline-block;font-family:var(--f-mono);font-size:.625rem;
+  color:var(--ink3);background:var(--warm);border:1px solid var(--border);
+  padding:.1rem .4rem;border-radius:4px;margin:.1rem .2rem .1rem 0;
+}
+.stv .hl{color:var(--gold-mid);font-weight:600}
+.chip-row{display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:1.375rem}
+.chip{
+  font-family:var(--f-mono);font-size:.625rem;font-weight:500;
+  color:var(--ink3);background:var(--warm);border:1px solid var(--border);
+  padding:.25rem .625rem;border-radius:var(--r);
+}
+.proj-link{
+  display:inline-flex;align-items:center;gap:.375rem;
+  font-family:var(--f-mono);font-size:.75rem;font-weight:500;
+  color:var(--ink4);transition:color .15s;
+}
+.proj-link:hover{color:var(--ink)}
+.proj-link::after{content:'↗'}
+.pf-right-label{
+  font-family:var(--f-mono);font-size:.625rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink4);margin-bottom:.875rem;
+}
+.pf-insight-box{
+  background:var(--cream);border:1px solid var(--border);border-radius:var(--r-lg);
+  overflow:hidden;margin-bottom:1rem;
+}
+.pib-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.5rem .875rem;border-bottom:1px solid var(--stone);
+  font-family:var(--f-mono);font-size:.6875rem;
+}
+.pib-row:last-child{border-bottom:none}
+.pib-k{color:var(--ink4)}
+.pib-v{font-weight:500;color:var(--ink)}
+.pib-v.em{color:var(--emerald)}
+.pib-v.go{color:var(--gold-mid)}
+.pf-bottom{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);
+}
+.pf-stat{
+  padding:1.25rem 1.5rem;border-right:1px solid var(--border);background:var(--warm);
+}
+.pf-stat:last-child{border-right:none}
+.pf-stat-num{
+  font-family:var(--f-display);font-size:1.625rem;font-weight:700;
+  letter-spacing:-.03em;color:var(--ink);line-height:1;margin-bottom:.25rem;
+}
+.pf-stat-num em{font-style:normal;color:var(--gold-mid);font-size:.875rem}
+.pf-stat-lbl{font-size:.75rem;color:var(--ink4)}
+
+/* ─── PROJ GRID ─── */
 .proj-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;border:1px solid var(--fence);border-radius:4px;
-  overflow:hidden;margin-top:3.5rem;background:var(--fence);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);border:1px solid var(--border);
+  border-radius:var(--r-xl);overflow:hidden;
+  margin-top:1.25rem;box-shadow:var(--sh-sm);
 }
 .pc{
-  background:var(--slab);padding:2.25rem;
-  display:flex;flex-direction:column;gap:1.25rem;
-  transition:background .25s;position:relative;
-}
-.pc::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--gold5),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.pc:hover{background:var(--layer)}
-.pc:hover::before{opacity:1}
-.pc.featured{
-  grid-column:1/-1;
-  display:grid;grid-template-columns:1fr 320px;gap:3rem;
-}
-.pc-badge{
-  display:inline-flex;align-items:center;
-  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;
-  text-transform:uppercase;padding:.2rem .55rem;border-radius:2px;border:1px solid;
-}
-.b-ae{border-color:rgba(232,213,163,.3);color:var(--gold2);background:rgba(232,213,163,.06)}
-.b-dj{border-color:rgba(120,180,255,.25);color:#7eb5ff;background:rgba(120,180,255,.06)}
-.b-ft{border-color:rgba(200,170,100,.25);color:#c8aa64;background:rgba(200,170,100,.06)}
-.pc-name{
-  font-family:var(--f-serif);font-size:1.15rem;font-weight:700;
-  color:var(--white);transition:color .2s;
-}
-.pc-name:hover{color:var(--gold)}
-.pc-body{color:var(--mist);font-size:.84rem;line-height:1.75}
-.pc-pills{display:flex;flex-wrap:wrap;gap:.3rem}
-.pp{
-  font-family:var(--f-mono);font-size:.62rem;color:var(--ash);
-  border:1px solid var(--fence);padding:.15rem .45rem;border-radius:2px;
-  background:var(--deep);
-}
-.pc-lnk{
-  display:inline-flex;align-items:center;gap:.3rem;margin-top:auto;
-  font-family:var(--f-mono);font-size:.68rem;color:var(--mist);
-  transition:color .2s;
-}
-.pc-lnk:hover{color:var(--gold)}
-.pc-lnk::after{content:'↗';font-size:.75rem}
-
-/* ── INSIGHT CARD ── */
-.ic{
-  background:var(--void);border:1px solid var(--fence);
-  border-radius:3px;padding:1.35rem;font-family:var(--f-mono);
-  font-size:.68rem;align-self:start;
-}
-.ic-head{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:1rem;padding-bottom:.85rem;
-  border-bottom:1px solid var(--fence);
-  font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);
-}
-.ic-badge{
-  font-size:.58rem;padding:.12rem .4rem;border-radius:2px;
-  border:1px solid rgba(212,160,23,.3);
-  color:#c8aa64;background:rgba(212,160,23,.06);letter-spacing:.06em;
-}
-.ic-row{
-  display:flex;justify-content:space-between;
-  padding:.38rem 0;border-bottom:1px solid var(--fence);
-}
-.ic-row:last-child{border-bottom:none}
-.ick{color:var(--ash)}
-.icv{font-weight:400}
-.icv.g{color:var(--gold)}
-.icv.a{color:#c8aa64}
-.icv.r{color:#e05252}
-
-/* ── STACK ── */
-.stack-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:1px;
-  border:1px solid var(--fence);border-radius:4px;
-  overflow:hidden;margin-top:3.5rem;background:var(--fence);
-}
-.sg-cell{background:var(--slab);padding:1.75rem 2rem;transition:background .2s}
-.sg-cell:hover{background:var(--layer)}
-.sg-cat{
-  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;
-}
-.sg-items{display:flex;flex-wrap:wrap;gap:.35rem}
-.sg-item{
-  font-family:var(--f-mono);font-size:.68rem;color:var(--mist);
-  border:1px solid var(--fence);padding:.2rem .55rem;border-radius:2px;
-  background:var(--deep);transition:border-color .2s,color .2s;cursor:default;
-}
-.sg-item:hover{border-color:rgba(232,213,163,.25);color:var(--gold)}
-.sg-item.prime{
-  border-color:rgba(232,213,163,.25);color:var(--gold2);
-  background:rgba(232,213,163,.05);
-}
-
-/* ── BG SECTION ── */
-.bgsec{
-  position:relative;z-index:2;
-  background:var(--deep);
-  border-bottom:1px solid var(--fence);
-}
-.bgsec-in{
-  max-width:1240px;margin:0 auto;padding:6rem 3rem;
-  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
-}
-.ev-grid{display:flex;flex-direction:column;gap:1px;border:1px solid var(--fence);border-radius:4px;overflow:hidden}
-.ev{
-  display:grid;grid-template-columns:90px 1fr;
-  background:var(--void);border-bottom:1px solid var(--fence);
+  background:var(--cream);padding:1.75rem;
+  display:flex;flex-direction:column;gap:1rem;
   transition:background .2s;
 }
-.ev:last-child{border-bottom:none}
-.ev:hover{background:var(--slab)}
-.ev-n{
-  font-family:var(--f-serif);font-size:1.75rem;font-weight:700;
-  color:var(--gold);letter-spacing:-.03em;
-  padding:1.5rem 1.25rem;border-right:1px solid var(--fence);
-  display:flex;align-items:center;justify-content:center;line-height:1;
+.pc:hover{background:var(--warm)}
+.pc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem}
+.pc-badge{
+  font-family:var(--f-mono);font-size:.5625rem;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;
+  padding:.2rem .5rem;border-radius:100px;border:1px solid;flex-shrink:0;
 }
-.ev-body{padding:1.5rem}
-.ev-t{
-  font-family:var(--f-sans);font-size:.88rem;font-weight:500;
-  color:var(--white);margin-bottom:.3rem;
+.b-dj{color:var(--sapphire);background:var(--sapphire-lt);border-color:#bfdbfe}
+.b-ft{color:var(--gold-mid);background:var(--gold-lt);border-color:var(--gold-brd)}
+.b-ae{color:var(--emerald);background:var(--emerald-lt);border-color:var(--emerald-brd)}
+.pc-name{font-size:1rem;font-weight:600;color:var(--ink);transition:color .15s}
+.pc-name:hover{color:var(--gold-mid)}
+.pc-body{font-size:.8125rem;color:var(--ink3);line-height:1.7}
+.pc-specs{display:flex;flex-direction:column}
+.pc-sr{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:.35rem 0;border-bottom:1px solid var(--stone);
+  font-family:var(--f-mono);font-size:.625rem;
 }
-.ev-d{font-size:.8rem;color:var(--mist);line-height:1.65}
+.pc-sr:last-child{border-bottom:none}
+.pc-sk{color:var(--ink4)}
+.pc-sv{color:var(--ink2);text-align:right}
+.pc-sv.hl{color:var(--gold-mid);font-weight:500}
+.pc-lnk{
+  display:inline-flex;align-items:center;gap:.3rem;margin-top:auto;
+  font-family:var(--f-mono);font-size:.6875rem;font-weight:500;
+  color:var(--ink4);transition:color .15s;
+}
+.pc-lnk:hover{color:var(--ink)}
+.pc-lnk::after{content:'↗'}
 
-/* ── FOOTER ── */
-.foot{
-  position:relative;z-index:2;
-  border-top:1px solid var(--fence);
-  font-family:var(--f-mono);font-size:.68rem;
+/* ─── BRING GRID ─── */
+.bring-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.25rem;margin-top:3rem;
 }
-.foot-claim{
-  background:var(--slab);padding:.85rem 3rem;
-  border-bottom:1px solid var(--fence);color:var(--ash);
-  display:flex;align-items:center;gap:.75rem;
+.bring{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:1.625rem;
+  box-shadow:var(--sh-sm);transition:box-shadow .2s,border-color .2s,transform .2s;
 }
-.foot-claim-icon{color:var(--gold2);font-size:.85rem}
-.foot-main{
-  max-width:1240px;margin:0 auto;padding:2.25rem 3rem;
+.bring:hover{box-shadow:var(--sh-md);border-color:var(--border2);transform:translateY(-2px)}
+.bring-ic{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--gold-lt);border:1px solid var(--gold-brd);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9375rem;color:var(--gold-mid);margin-bottom:1rem;
+}
+.bring-t{font-size:.875rem;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+.bring-b{font-size:.8125rem;color:var(--ink3);line-height:1.7}
+
+/* ─── STACK ─── */
+.stack-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;margin-top:1.5rem;
+}
+.sc{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:1.5rem;
+  box-shadow:var(--sh-sm);transition:box-shadow .2s,border-color .2s;
+}
+.sc:hover{box-shadow:var(--sh-md);border-color:var(--border2)}
+.sc-cat{
+  font-family:var(--f-mono);font-size:.625rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold-mid);margin-bottom:1rem;
+}
+.sc-items{display:flex;flex-wrap:wrap;gap:.375rem}
+.si{
+  font-family:var(--f-mono);font-size:.625rem;font-weight:400;
+  color:var(--ink3);background:var(--warm);border:1px solid var(--border);
+  padding:.25rem .6rem;border-radius:var(--r);
+  transition:border-color .15s,color .15s;
+}
+.si:hover{border-color:var(--border2);color:var(--ink)}
+.si.prime{
+  color:var(--ink);background:var(--cream);border-color:var(--border2);
+  font-weight:500;
+}
+
+/* ─── BACKGROUND ─── */
+.bg-sec{background:var(--warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.bg-in{
+  max-width:1220px;margin:0 auto;padding:5.5rem 3rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
+}
+.bg-ev-list{display:flex;flex-direction:column;gap:.875rem}
+.bg-ev{
+  background:var(--cream);border:1px solid var(--border);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--sh-sm);display:grid;grid-template-columns:80px 1fr;
+  transition:box-shadow .2s;
+}
+.bg-ev:hover{box-shadow:var(--sh-md)}
+.bg-ev-n{
+  font-family:var(--f-display);font-size:1.5rem;font-weight:700;
+  letter-spacing:-.03em;color:var(--gold-mid);line-height:1;
+  padding:1.25rem;border-right:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  background:var(--gold-lt);
+}
+.bg-ev-body{padding:1.25rem}
+.bg-ev-t{font-size:.875rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+.bg-ev-d{font-size:.8125rem;color:var(--ink3);line-height:1.65}
+.bg-targets{margin-top:2.25rem;display:flex;flex-direction:column;gap:.625rem}
+.bg-tgt{
+  display:flex;align-items:center;gap:.625rem;
+  font-size:.875rem;color:var(--ink2);
+}
+.bg-tgt-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--gold-mid);flex-shrink:0;
+}
+
+/* ─── FOOTER ─── */
+footer{position:relative;z-index:1;background:var(--ink)}
+.ft-cta{
+  max-width:1220px;margin:0 auto;padding:3.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  border-bottom:1px solid #2d2a26;
+}
+.ft-cta-h{
+  font-family:var(--f-display);font-size:1.75rem;font-weight:600;
+  letter-spacing:-.03em;color:#f5f4f0;margin-bottom:.375rem;
+}
+.ft-cta-sub{font-size:.875rem;color:#6b6760}
+.ft-cta-btn{
+  display:inline-flex;align-items:center;gap:.5rem;flex-shrink:0;
+  font-size:.875rem;font-weight:600;color:var(--ink);
+  background:var(--cream);padding:.7rem 1.5rem;border-radius:var(--r);
+  transition:opacity .15s;box-shadow:var(--sh-sm);
+}
+.ft-cta-btn:hover{opacity:.92}
+.ft-main{
+  max-width:1220px;margin:0 auto;padding:1.5rem 3rem;
   display:flex;align-items:center;justify-content:space-between;
 }
-.foot-sig{color:var(--fog)}
-.foot-sig strong{color:var(--veil);font-weight:400}
-.foot-links{display:flex;gap:0;border:1px solid var(--fence);border-radius:2px;overflow:hidden}
-.foot-link{
-  color:var(--ash);padding:.42rem 1rem;border-right:1px solid var(--fence);
-  transition:background .15s,color .15s;letter-spacing:.07em;text-transform:uppercase;font-size:.6rem;
+.ft-sig{font-size:.8125rem;color:#4a4740}
+.ft-sig strong{color:#8a8680;font-weight:500}
+.ft-links{display:flex;gap:.25rem}
+.ft-lnk{
+  font-size:.8125rem;color:#4a4740;padding:.35rem .75rem;
+  border-radius:var(--r);transition:background .15s,color .15s;
 }
-.foot-link:last-child{border-right:none}
-.foot-link:hover{background:var(--layer);color:var(--gold)}
-
-/* ── SPEC TABLE ── */
-.spec-table{
-  width:100%;border-collapse:collapse;
-  margin:.85rem 0;font-family:var(--f-mono);font-size:.65rem;
-}
-.spec-table tr{border-bottom:1px solid var(--fence)}
-.spec-table tr:last-child{border-bottom:none}
-.spec-k{
-  color:var(--ash);padding:.45rem .6rem .45rem 0;
-  white-space:nowrap;width:110px;vertical-align:top;
-  padding-top:.5rem;
-}
-.spec-v{color:var(--mist);padding:.45rem 0;line-height:1.5}
-.spec-hi{color:var(--gold2)}
-.spec-tag{
-  display:inline-block;
-  border:1px solid var(--fence);background:var(--deep);
-  color:var(--ash);padding:.1rem .4rem;border-radius:2px;
-  font-size:.6rem;margin:0 .15rem .2rem 0;
+.ft-lnk:hover{background:#2d2a26;color:#8a8680}
+.ft-claim{
+  border-top:1px solid #2d2a26;padding:.875rem 3rem;
+  max-width:1220px;margin:0 auto;
+  font-family:var(--f-mono);font-size:.625rem;color:#3d3a36;
 }
 
-
-/* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94)}
+/* ─── REVEAL ─── */
+.rv{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94);
+}
 .rv.in{opacity:1;transform:translateY(0)}
-.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
 
-/* ── RESPONSIVE ── */
+/* ─── COUNTER ─── */
+.counter{display:inline}
 
-/* Desktop large — add subtle page margin */
+/* ─── RESPONSIVE ─── */
 @media(min-width:1400px){
-  .hero-l{padding:7rem 5rem 7rem 4rem}
-  .sec-in{padding:7rem 4rem}
-  .bgsec-in{padding:7rem 4rem}
+  .hero,.sec-in,.bg-in,.ft-cta,.ft-main,.ft-claim{padding-left:4rem;padding-right:4rem}
 }
-
-/* Tablet landscape / small desktop */
-@media(max-width:1200px){
-  .hero-l{padding:6rem 3rem 6rem 2rem}
-  .sec-in{padding:5rem 2rem}
-  .bgsec-in{padding:5rem 2rem}
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr;gap:3.5rem;padding-top:calc(68px + 4rem)}
+  .hero-r{max-width:580px}
+  .pf-top{grid-template-columns:1fr}
+  .pf-right{border-top:1px solid var(--border);border-right:none}
+  .proj-grid{grid-template-columns:1fr 1fr}
+  .stack-grid{grid-template-columns:1fr 1fr}
+  .bring-grid{grid-template-columns:1fr 1fr}
+  .bg-in{grid-template-columns:1fr;gap:3rem}
 }
-
-/* Tablet portrait */
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-r{display:none}
-  .nums{grid-template-columns:1fr 1fr}
-  .n-cell:nth-child(2){border-right:none}
-  .n-cell:nth-child(3){border-top:1px solid var(--fence)}
-  .proj-grid{grid-template-columns:1fr}
-  .pc.featured{grid-template-columns:1fr}
-  .stack-grid{grid-template-columns:1fr}
-  .bgsec-in{grid-template-columns:1fr}
+@media(max-width:768px){
+  nav{padding:0 1.25rem;height:60px}
+  .nav-links,.nav-status{display:none}
+  .hero{padding:calc(60px + 3rem) 1.25rem 3rem}
+  .sec-in{padding:4rem 1.25rem}
+  .metrics{grid-template-columns:1fr 1fr}
+  .met:nth-child(2){border-right:none}
+  .met:nth-child(3){border-top:1px solid var(--border)}
   .pipe-track{flex-direction:column}
-  .pn{border-right:none;border-bottom:1px solid var(--fence)}
+  .pn{border-right:none;border-bottom:1px solid var(--border)}
   .pn:last-child{border-bottom:none}
   .pn-arr{display:none}
-  nav{padding:0 1.5rem}
-  .nav-links{display:none}
-  .sec-in,.bgsec-in{padding:4rem 1.5rem}
-  .hero-l{padding:5rem 1.5rem}
-  .foot-main{flex-direction:column;gap:1.5rem;align-items:flex-start}
-  .foot-claim{padding:.85rem 1.5rem}
-  .hero-name{font-size:clamp(3rem,8vw,5rem)}
-  .n-val{font-size:2.2rem}
+  .pf-top{grid-template-columns:1fr}
+  .pf-bottom{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .stack-grid{grid-template-columns:1fr}
+  .bring-grid{grid-template-columns:1fr}
+  .bg-in{padding:3.5rem 1.25rem;grid-template-columns:1fr}
+  .ft-cta{flex-direction:column;align-items:flex-start;padding:2.5rem 1.25rem}
+  .ft-main{flex-direction:column;gap:1rem;align-items:flex-start;padding:1.25rem}
+  .ft-claim{padding:.75rem 1.25rem}
 }
-
-/* Mobile large */
-@media(max-width:768px){
-  nav{padding:0 1rem;height:52px}
-  .nav-links{display:none}
-  .nav-contact{padding:.3rem .7rem;font-size:.65rem}
-  .hero-l{padding:4rem 1rem 3rem}
-  .hero-tag{font-size:.58rem;margin-bottom:2rem}
-  .hero-name{font-size:clamp(2.8rem,10vw,4rem);margin-bottom:1rem}
-  .hero-roles{margin-bottom:2rem}
-  .hero-role{font-size:clamp(1.2rem,5vw,1.8rem)}
-  .hero-body{font-size:.82rem;margin-bottom:2rem}
-  .hero-chips{gap:.3rem;margin-bottom:2rem}
-  .chip{font-size:.6rem;padding:.2rem .5rem}
-  .hero-btns{flex-direction:column;gap:.5rem}
-  .btn-a,.btn-b{justify-content:center;padding:.55rem 1rem;font-size:.7rem}
-  .nums{grid-template-columns:1fr 1fr}
-  .n-cell{padding:1.5rem 1rem}
-  .n-val{font-size:1.8rem}
-  .n-key{font-size:.58rem}
-  .n-sub{font-size:.7rem}
-  .sec-in{padding:3rem 1rem}
-  .sec-h{font-size:clamp(1.8rem,6vw,2.5rem)}
-  .sec-sub{font-size:.82rem}
-  .bgsec-in{padding:3rem 1rem}
-  .pipe-foot{flex-direction:column;gap:.75rem;padding:.85rem 1rem}
-  .pc{padding:1.5rem 1rem}
-  .pc-name{font-size:1rem}
-  .pc-body{font-size:.8rem}
-  .ic{padding:1rem}
-  .sg-cell{padding:1.25rem 1rem}
-  .ev-n{font-size:1.3rem;padding:1rem}
-  .ev-body{padding:1rem}
-  .foot-claim{font-size:.65rem;padding:.75rem 1rem}
-  .foot-main{padding:1.5rem 1rem}
-  .cursor,.cursor-ring{display:none}
-}
-
-/* Mobile small */
 @media(max-width:480px){
-  .hero-l{padding:3.5rem .85rem 2.5rem}
-  .sec-in{padding:2.5rem .85rem}
-  .bgsec-in{padding:2.5rem .85rem}
-  .nums{grid-template-columns:1fr 1fr}
-  .n-cell{padding:1.25rem .85rem}
-  .hero-name{font-size:clamp(2.5rem,12vw,3.5rem)}
-  .sec-eyebrow{gap:.75rem}
-  .foot-claim{padding:.7rem .85rem}
-  .foot-main{padding:1.25rem .85rem}
+  .hero-h1{font-size:2.75rem}
+  .sec-num{font-size:2.75rem}
+  .metrics{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curR"></div>
-<canvas id="bgCanvas"></canvas>
-<div class="grain"></div>
-
 <!-- NAV -->
 <nav>
-  <div class="nav-mark">
-    <span class="nav-mark-line"></span>
+  <div class="nav-brand">
+    <div class="nav-brand-mark">AI</div>
     Aminul Islam
-    <span class="nav-mark-live">
-      <span class="nav-mark-dot"></span>
-      available
-    </span>
   </div>
   <div class="nav-links">
-    <a class="nav-link" href="#pipeline">Pipeline</a>
-    <a class="nav-link" href="#projects">Projects</a>
-    <a class="nav-link" href="#stack">Stack</a>
-    <a class="nav-link" href="#background">Background</a>
+    <a class="nav-a" href="#pipeline">Pipeline</a>
+    <a class="nav-a" href="#projects">Projects</a>
+    <a class="nav-a" href="#stack">Stack</a>
+    <a class="nav-a" href="#background">Background</a>
   </div>
-  <a class="nav-contact" href="#" onclick="openEmail();return false;">contact ↗</a>
+  <div class="nav-right">
+    <div class="nav-status"><span class="nav-status-dot"></span>Available now</div>
+    <a class="nav-btn" href="#" onclick="openEmail();return false;">Get in touch</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-l">
-    <p class="hero-tag">Data Analyst · BI Analyst · Junior Analytics Engineer · London, UK</p>
-    <h1 class="hero-name">
-      Aminul<br><em>Islam</em>
+  <div>
+    <div class="hero-label">◈ Analytics Engineering · FX &amp; FinTech · London, UK</div>
+    <h1 class="hero-h1">
+      Turning <em>operational</em><br>
+      data into<br>
+      <span class="hl">trusted outputs</span>
     </h1>
-    <div class="hero-roles">
-      <span class="hero-role lit">Data Analyst</span>
-      <span class="hero-role lit">BI Analyst</span>
-      <span class="hero-role lit-gold">Analytics Engineering</span>
-    </div>
-    <p class="hero-body">
-      I build <strong>Python, Django, SQL, and dbt analytics tools</strong> that turn raw operational data into
-      reliable, decision-ready outputs — KPI dashboards, BI-ready exports, tested dbt models, and
-      data-quality-checked reporting across <strong>FX and FinTech domains.</strong>
-      15 years UK experience. Full work authorisation. Available immediately.
+    <p class="hero-p">
+      I build <strong>Python, Django, SQL, and dbt analytics tools</strong> that transform raw
+      operational data into reliable, decision-ready outputs — KPI dashboards, BI-ready exports,
+      tested dbt models, and data-quality-checked reporting across FX and FinTech domains.
+      <br><br>
+      15 years UK operational experience. Full work authorisation. Available immediately.
     </p>
     <div class="hero-chips">
-      <span class="chip on">Python</span><span class="chip on">SQL</span>
-      <span class="chip on">dbt</span><span class="chip on">Django</span>
-      <span class="chip on">Excel</span><span class="chip">Pandas</span>
-      <span class="chip">DuckDB</span><span class="chip">Plotly</span>
-      <span class="chip">Power Query</span><span class="chip">DAX</span><span class="chip">Git</span>
+      <span class="hchip lit">Python</span><span class="hchip lit">SQL</span>
+      <span class="hchip lit">dbt</span><span class="hchip lit">Django</span>
+      <span class="hchip lit">Excel</span><span class="hchip">Pandas</span>
+      <span class="hchip">DuckDB</span><span class="hchip">Power Query</span>
+      <span class="hchip">DAX</span><span class="hchip">Plotly</span><span class="hchip">Git</span>
     </div>
     <div class="hero-btns">
-      <a class="btn-a" href="https://github.com/aminul-portfolio" target="_blank">⬡ GitHub portfolio</a>
-      <a class="btn-b" href="https://www.linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
-      <a class="btn-b" href="#" onclick="openEmail();return false;">Get in touch</a>
+      <a class="btn-p" href="https://github.com/aminul-portfolio" target="_blank">⬡ GitHub portfolio</a>
+      <a class="btn-s" href="https://www.linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
+      <a class="btn-s" href="#" onclick="openEmail();return false;">Email me</a>
     </div>
-    <div class="hm-strip">
-      <span class="hm-dot"></span>
-      <span class="hm-text">Available now · London, Remote, or Hybrid · No sponsorship required</span>
+    <div class="hero-avail">
+      <span class="avail-dot"></span>
+      London · Remote · Hybrid · No sponsorship required
     </div>
   </div>
+
   <div class="hero-r">
-    <div class="term-wrap">
-      <div class="term-chrome">
-        <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
-        <span class="t-file">bakeops-dbt — dbt build</span>
+    <div class="terminal">
+      <div class="term-bar">
+        <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+        <span class="term-title">bakeops-dbt — dbt build</span>
       </div>
-      <div class="tl"><span class="tl-prompt">$</span><span class="tl-path">~/bakeops_dbt</span><span class="tl-cmd">&nbsp;dbt build</span></div>
-      <div class="tl-sp"></div>
-      <div class="tl"><span class="tl-dim">Running with dbt-core==1.7.x</span></div>
-      <div class="tl"><span class="tl-dim">Found 7 models, 26 tests, 11 sources</span></div>
-      <div class="tl-sp"></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">stg_orders</span>&nbsp;<span class="tl-dim">.. [view 0.42s]</span></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">stg_order_items</span>&nbsp;<span class="tl-dim">.. [view 0.38s]</span></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">stg_product_performance_snapshot</span></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">int_product_revenue</span>&nbsp;<span class="tl-dim">.. [view]</span></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">int_product_margins</span>&nbsp;<span class="tl-dim">.. [view]</span></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">mart_product_performance</span>&nbsp;<span class="tl-dim">.. [table]</span></div>
-      <div class="tl"><span class="tl-ok">✓</span>&nbsp;<span class="tl-key">mart_rank_inversion</span>&nbsp;<span class="tl-dim">.. [table]</span></div>
-      <div class="tl-sp"></div>
-      <div class="tl"><span class="tl-dim">Running 26 data tests...</span></div>
-      <div class="tl"><span class="tl-ok">✓ All 26 tests passed</span></div>
-      <div class="tl-sp"></div>
-      <div class="tl"><span class="tl-ok">PASS=</span><span class="tl-num">33</span>&nbsp;<span class="tl-key">WARN=</span><span class="tl-num">0</span>&nbsp;<span class="tl-key">ERROR=</span><span class="tl-num">0</span></div>
-      <div class="tl"><span class="tl-ok">Done.</span>&nbsp;<span class="tl-cursor"></span></div>
+      <div class="term-body">
+        <div class="tl"><span class="t-pr">$</span><span class="t-pa">~/bakeops_dbt</span><span class="t-cm"> dbt build</span></div>
+        <div class="t-sp"></div>
+        <div class="tl"><span class="t-dm">Running with dbt-core==1.7.x</span></div>
+        <div class="tl"><span class="t-dm">Found 7 models, 26 tests, 11 sources</span></div>
+        <div class="t-sp"></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">stg_orders</span>&nbsp;<span class="t-dm">.. [view 0.42s]</span></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">stg_order_items</span>&nbsp;<span class="t-dm">.. [view 0.38s]</span></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">stg_product_performance_snapshot</span></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">int_product_revenue</span>&nbsp;<span class="t-dm">.. [view]</span></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">int_product_margins</span>&nbsp;<span class="t-dm">.. [view]</span></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">mart_product_performance</span>&nbsp;<span class="t-dm">.. [table]</span></div>
+        <div class="tl"><span class="t-ok">✓</span>&nbsp;<span class="t-ky">mart_rank_inversion</span>&nbsp;<span class="t-dm">.. [table]</span></div>
+        <div class="t-sp"></div>
+        <div class="tl"><span class="t-dm">Running 26 data tests...</span></div>
+        <div class="tl"><span class="t-ok">✓ All 26 tests passed</span></div>
+        <div class="t-sp"></div>
+        <div class="tl"><span class="t-ok">PASS=</span><span class="t-nm">33</span>&nbsp;<span class="t-ky">WARN=</span><span class="t-nm">0</span>&nbsp;<span class="t-ky">ERROR=</span><span class="t-nm">0</span></div>
+        <div class="tl"><span class="t-ok">Done.</span>&nbsp;<span class="t-cu"></span></div>
+      </div>
     </div>
-    <div class="data-pane">
-      <p class="dp-label">mart_rank_inversion · output <span class="dp-status">INVERSION CONFIRMED</span></p>
-      <div class="dp-row"><span class="dp-k">product</span><span class="dp-v g">Birthday Classic</span></div>
-      <div class="dp-row"><span class="dp-k">revenue_rank</span><span class="dp-v g">1</span></div>
-      <div class="dp-row"><span class="dp-k">waste_adjusted_margin_rank</span><span class="dp-v a">4</span></div>
-      <div class="dp-row"><span class="dp-k">margin_rank_gap</span><span class="dp-v a">3</span></div>
-      <div class="dp-row"><span class="dp-k">rank_movement</span><span class="dp-v r">−3</span></div>
-      <div class="dp-row"><span class="dp-k">has_rank_inversion</span><span class="dp-v a">1</span></div>
-      <div class="dp-row"><span class="dp-k">action_flag</span><span class="dp-v a">review</span></div>
+    <div class="ic">
+      <div class="ic-top">
+        <span class="ic-top-lbl">mart_rank_inversion · live output</span>
+        <span class="ic-top-badge">INVERSION CONFIRMED</span>
+      </div>
+      <div class="ic-rows">
+        <div class="ic-r"><span class="ic-k">product</span><span class="ic-v em">Birthday Classic</span></div>
+        <div class="ic-r"><span class="ic-k">revenue_rank</span><span class="ic-v em">1</span></div>
+        <div class="ic-r"><span class="ic-k">waste_adjusted_margin_rank</span><span class="ic-v go">4</span></div>
+        <div class="ic-r"><span class="ic-k">margin_rank_gap</span><span class="ic-v go">3</span></div>
+        <div class="ic-r"><span class="ic-k">rank_movement</span><span class="ic-v cr">−3</span></div>
+        <div class="ic-r"><span class="ic-k">has_rank_inversion</span><span class="ic-v go">1</span></div>
+        <div class="ic-r"><span class="ic-k">action_flag</span><span class="ic-v pill">review</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- NUMBERS -->
-<div class="nums rv">
-  <div class="n-cell"><div class="n-val">7<em>M</em></div><div class="n-key">dbt models</div><div class="n-sub">staging → intermediate → mart</div></div>
-  <div class="n-cell"><div class="n-val">26<em>T</em></div><div class="n-key">data tests</div><div class="n-sub">PASS=33 · WARN=0 · ERROR=0</div></div>
-  <div class="n-cell"><div class="n-val">15<em>Y</em></div><div class="n-key">UK experience</div><div class="n-sub">FX · money transfer · KPI reporting</div></div>
-  <div class="n-cell"><div class="n-val">6<em>+</em></div><div class="n-key">public projects</div><div class="n-sub">FinTech · analytics · AE patterns</div></div>
+<!-- METRICS -->
+<div class="metrics rv">
+  <div class="met">
+    <div class="met-num"><span class="counter" data-target="7">0</span><em>M</em></div>
+    <div class="met-lbl">dbt models</div>
+    <div class="met-sub">staging → intermediate → mart</div>
+  </div>
+  <div class="met">
+    <div class="met-num"><span class="counter" data-target="26">0</span><em>T</em></div>
+    <div class="met-lbl">Data tests</div>
+    <div class="met-sub">PASS=33 · WARN=0 · ERROR=0</div>
+  </div>
+  <div class="met">
+    <div class="met-num"><span class="counter" data-target="15">0</span><em>Y</em></div>
+    <div class="met-lbl">UK experience</div>
+    <div class="met-sub">FX · money transfer · KPI reporting</div>
+  </div>
+  <div class="met">
+    <div class="met-num"><span class="counter" data-target="828">0</span><em>T</em></div>
+    <div class="met-lbl">Automated tests</div>
+    <div class="met-sub">CareerFunnel · Sprint 60 · claim-safe</div>
+  </div>
 </div>
 
 <!-- PIPELINE -->
 <div class="sec rv" id="pipeline">
 <div class="sec-in">
   <div class="sec-eyebrow">
-    <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">01</span>
-    <div class="sec-rule"></div>
-    <span class="sec-tag">analytics workflow</span>
+    <span class="sec-num">01</span>
+    <span class="sec-tag">Analytics workflow</span>
   </div>
-  <h2 class="sec-h">From raw data<br>to trusted output</h2>
-  <p class="sec-sub">The same architecture across every project. Source inspection first, clean transformation, tested models, decision-ready exports.</p>
-  <div class="pipe rv rv-d1">
+  <h2 class="sec-h2">From raw data to trusted output</h2>
+  <p class="sec-sub">The same five-stage architecture across every project. Source inspection first, clean SQL transformation, tested dbt models, curated marts, decision-ready exports — the pattern a production analytics team would recognise.</p>
+  <div class="pipe-wrap rv rv-d1">
     <div class="pipe-track">
-      <div class="pn"><p class="pn-n"><span class="pn-badge">01</span>Source</p><p class="pn-name">Raw Data</p><p class="pn-detail">CSV Exports<br>APIs · Files · Logs</p><div class="pn-arr">›</div></div>
-      <div class="pn"><p class="pn-n"><span class="pn-badge">02</span>Transform</p><p class="pn-name">Staging (SQL)</p><p class="pn-detail">Clean & Standardise<br>Validate & Type</p><div class="pn-arr">›</div></div>
-      <div class="pn"><p class="pn-n"><span class="pn-badge">03</span>Model</p><p class="pn-name">dbt Transform</p><p class="pn-detail">Business Logic<br>Test & Document</p><div class="pn-arr">›</div></div>
-      <div class="pn"><p class="pn-n"><span class="pn-badge">04</span>Curate</p><p class="pn-name">Mart Layer</p><p class="pn-detail">Trusted · Consistent<br>Analytics Ready</p><div class="pn-arr">›</div></div>
-      <div class="pn"><p class="pn-n"><span class="pn-badge">05</span>Deliver</p><p class="pn-name">Dashboards</p><p class="pn-detail">Business Insight<br>BI-ready Exports</p></div>
+      <div class="pn"><p class="pn-step"><span class="pn-badge">01</span>Source</p><p class="pn-name">Raw Data</p><p class="pn-detail">CSV Exports<br>APIs · Files · Logs</p><div class="pn-arr">›</div></div>
+      <div class="pn"><p class="pn-step"><span class="pn-badge">02</span>Transform</p><p class="pn-name">Staging (SQL)</p><p class="pn-detail">Clean & Standardise<br>Validate & Type</p><div class="pn-arr">›</div></div>
+      <div class="pn"><p class="pn-step"><span class="pn-badge">03</span>Model</p><p class="pn-name">dbt Transform</p><p class="pn-detail">Business Logic<br>Test & Document</p><div class="pn-arr">›</div></div>
+      <div class="pn"><p class="pn-step"><span class="pn-badge">04</span>Curate</p><p class="pn-name">Mart Layer</p><p class="pn-detail">Trusted · Consistent<br>Analytics Ready</p><div class="pn-arr">›</div></div>
+      <div class="pn"><p class="pn-step"><span class="pn-badge">05</span>Deliver</p><p class="pn-name">Dashboards</p><p class="pn-detail">Business Insight<br>BI-ready Exports</p></div>
     </div>
     <div class="pipe-foot">
-      <div class="pf-item"><span class="pf-dot" style="background:var(--gold)"></span>bakeops-dbt implementation</div>
-      <div class="pf-item"><span class="pf-dot" style="background:#7eb5ff"></span>BakeOps Intelligence</div>
-      <div class="pf-item"><span class="pf-dot" style="background:var(--haze)"></span>local DuckDB · no cloud warehouse</div>
+      <div class="pl"><span class="pl-dot" style="background:var(--gold-mid)"></span>bakeops-dbt implementation</div>
+      <div class="pl"><span class="pl-dot" style="background:var(--sapphire)"></span>BakeOps Intelligence</div>
+      <div class="pl"><span class="pl-dot" style="background:var(--ink4)"></span>Local DuckDB · no cloud warehouse</div>
     </div>
   </div>
 </div>
 </div>
 
 <!-- PROJECTS -->
-<div class="sec rv" id="projects">
+<div class="sec rv" id="projects" style="background:var(--warm)">
 <div class="sec-in">
   <div class="sec-eyebrow">
-    <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">02</span>
-    <div class="sec-rule"></div>
-    <span class="sec-tag">portfolio evidence</span>
+    <span class="sec-num">02</span>
+    <span class="sec-tag">Portfolio evidence</span>
   </div>
-  <h2 class="sec-h">Analytics engineering<br>evidence base</h2>
-  <p class="sec-sub">Every project is public, tested, and claim-safe — no overclaiming, no fake features. Each one uses seeded or public demo data and can be cloned and run by any reviewer. The featured project, bakeops-dbt, demonstrates the full Analytics Engineering stack: dbt, DuckDB, staging models, intermediate business logic, and tested marts.</p>
-  <div class="proj-grid rv rv-d1">
-    <div class="pc featured">
-      <div>
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.85rem">
-          <a class="pc-name" href="https://github.com/aminul-portfolio/bakeops-dbt" target="_blank">bakeops-dbt</a>
-          <span class="pc-badge b-ae">Analytics Engineering</span>
+  <h2 class="sec-h2">Analytics engineering evidence base</h2>
+  <p class="sec-sub">Every project is public, tested, and claim-safe — no overclaiming, no fake features. Each can be cloned and run by any reviewer.</p>
+
+  <div class="proj-featured rv rv-d1">
+    <div class="pf-top">
+      <div class="pf-left">
+        <div class="pf-badge">◈ Featured · Analytics Engineering</div>
+        <div>
+          <a class="pf-name" href="https://github.com/aminul-portfolio/bakeops-dbt" target="_blank">bakeops-dbt</a>
+          <span class="pf-ver">v1.0.1</span>
         </div>
-        <p class="pc-body">dbt + DuckDB analytics engineering project transforming BakeOps Intelligence CSV exports into tested product-performance marts. Preserves the BakeOps signature insight across three implementations: Django → SQL evidence layer → dbt mart.</p>
-        <table class="spec-table">
-          <tr><td class="spec-k">Staging</td><td class="spec-v"><span class="spec-tag">stg_orders</span> <span class="spec-tag">stg_order_items</span> <span class="spec-tag">stg_snapshot</span></td></tr>
-          <tr><td class="spec-k">Intermediate</td><td class="spec-v"><span class="spec-tag">int_product_revenue</span> <span class="spec-tag">int_product_margins</span></td></tr>
-          <tr><td class="spec-k">Mart</td><td class="spec-v"><span class="spec-tag">mart_product_performance</span> <span class="spec-tag">mart_rank_inversion</span></td></tr>
-          <tr><td class="spec-k">Tests</td><td class="spec-v spec-hi">26 passing · PASS=33 WARN=0 ERROR=0</td></tr>
-          <tr><td class="spec-k">Release</td><td class="spec-v spec-hi">v1.0.1 · local DuckDB · no cloud</td></tr>
+        <p class="pf-desc">dbt + DuckDB analytics engineering project transforming BakeOps Intelligence CSV exports into tested product-performance marts. Preserves the BakeOps signature insight across three implementations: Django → SQL evidence layer → dbt mart.</p>
+        <table class="spec-tbl">
+          <tr><td class="stk">Staging</td><td class="stv"><span class="t">stg_orders</span><span class="t">stg_order_items</span><span class="t">stg_snapshot</span></td></tr>
+          <tr><td class="stk">Intermediate</td><td class="stv"><span class="t">int_product_revenue</span><span class="t">int_product_margins</span></td></tr>
+          <tr><td class="stk">Mart</td><td class="stv"><span class="t">mart_product_performance</span><span class="t">mart_rank_inversion</span></td></tr>
+          <tr><td class="stk">Tests</td><td class="stv"><span class="hl">26 passing · PASS=33 WARN=0 ERROR=0</span></td></tr>
+          <tr><td class="stk">Release</td><td class="stv"><span class="hl">v1.0.1 · local DuckDB · no cloud</span></td></tr>
         </table>
-        <div class="pc-pills" style="margin-top:1rem">
-          <span class="pp">dbt Core</span><span class="pp">DuckDB</span><span class="pp">schema.yml</span><span class="pp">sources.yml</span>
-        </div>
-        <a class="pc-lnk" href="https://github.com/aminul-portfolio/bakeops-dbt" target="_blank">github.com/aminul-portfolio/bakeops-dbt</a>
+        <div class="chip-row"><span class="chip">dbt Core</span><span class="chip">DuckDB</span><span class="chip">schema.yml</span><span class="chip">sources.yml</span><span class="chip">SQL</span></div>
+        <a class="proj-link" href="https://github.com/aminul-portfolio/bakeops-dbt" target="_blank">github.com/aminul-portfolio/bakeops-dbt</a>
       </div>
-      <div class="ic">
-        <div class="ic-head">mart_rank_inversion output<span class="ic-badge">INVERSION</span></div>
-        <div class="ic-row"><span class="ick">cake_name</span><span class="icv g">Birthday Classic</span></div>
-        <div class="ic-row"><span class="ick">revenue_rank</span><span class="icv g">1</span></div>
-        <div class="ic-row"><span class="ick">waste_adj_margin_rank</span><span class="icv a">4</span></div>
-        <div class="ic-row"><span class="ick">margin_rank_gap</span><span class="icv a">3</span></div>
-        <div class="ic-row"><span class="ick">has_rank_inversion</span><span class="icv a">1</span></div>
-        <div class="ic-row"><span class="ick">action_flag</span><span class="icv a">review</span></div>
+      <div class="pf-right">
+        <p class="pf-right-label">Signature insight</p>
+        <p style="font-size:.8125rem;color:var(--ink3);line-height:1.7;margin-bottom:1rem">Birthday Classic is revenue rank #1, but drops to margin rank #4 after waste-adjusted margin — a rank inversion that challenges revenue-only product decisions.</p>
+        <div class="pf-insight-box">
+          <div class="pib-row"><span class="pib-k">revenue_rank</span><span class="pib-v em">1</span></div>
+          <div class="pib-row"><span class="pib-k">waste_adj_margin_rank</span><span class="pib-v go">4</span></div>
+          <div class="pib-row"><span class="pib-k">margin_rank_gap</span><span class="pib-v go">3</span></div>
+          <div class="pib-row"><span class="pib-k">has_rank_inversion</span><span class="pib-v go">1</span></div>
+          <div class="pib-row"><span class="pib-k">action_flag</span><span class="pib-v go">review</span></div>
+        </div>
       </div>
     </div>
+    <div class="pf-bottom">
+      <div class="pf-stat"><div class="pf-stat-num">7<em>M</em></div><div class="pf-stat-lbl">dbt models · 3 layers</div></div>
+      <div class="pf-stat"><div class="pf-stat-num">26<em>T</em></div><div class="pf-stat-lbl">Tests · all passing</div></div>
+      <div class="pf-stat"><div class="pf-stat-num">11<em>S</em></div><div class="pf-stat-lbl">Source declarations</div></div>
+      <div class="pf-stat"><div class="pf-stat-num">v1<em>.0.1</em></div><div class="pf-stat-lbl">Tagged public release</div></div>
+    </div>
+  </div>
+
+  <div class="proj-grid rv rv-d2">
     <div class="pc">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
-        <a class="pc-name" href="https://github.com/aminul-portfolio/bakeops-intelligence" target="_blank">BakeOps Intelligence</a>
-        <span class="pc-badge b-dj">Django</span>
+      <div class="pc-head"><a class="pc-name" href="https://github.com/aminul-portfolio/bakeops-intelligence" target="_blank">BakeOps Intelligence</a><span class="pc-badge b-dj">Django</span></div>
+      <p class="pc-body">Django analytics platform with KPI dashboards, gold-layer metric snapshots, and reviewer-verifiable BI exports.</p>
+      <div class="pc-specs">
+        <div class="pc-sr"><span class="pc-sk">Dashboards</span><span class="pc-sv">KPI · gold-layer</span></div>
+        <div class="pc-sr"><span class="pc-sk">Exports</span><span class="pc-sv">BI-ready CSV · 11</span></div>
+        <div class="pc-sr"><span class="pc-sk">Tests</span><span class="pc-sv hl">37 automated</span></div>
       </div>
-      <p class="pc-body">Django analytics platform for bakery operations with deterministic metric pipelines, gold-layer snapshots, and reviewer-verifiable BI exports.</p>
-      <table class="spec-table">
-        <tr><td class="spec-k">Dashboards</td><td class="spec-v">KPI cards · gold-layer metric snapshots</td></tr>
-        <tr><td class="spec-k">Exports</td><td class="spec-v">BI-ready CSV · 11 export contracts</td></tr>
-        <tr><td class="spec-k">Quality</td><td class="spec-v">Data-quality review · lineage docs</td></tr>
-        <tr><td class="spec-k">Tests</td><td class="spec-v spec-hi">37 automated tests</td></tr>
-      </table>
-      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Python</span><span class="pp">Plotly</span><span class="pp">gold-layer</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/bakeops-intelligence" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
-        <a class="pc-name" href="https://github.com/aminul-portfolio/databridge-market-api" target="_blank">DataBridge Market API</a>
-        <span class="pc-badge b-ft">FinTech</span>
+      <div class="pc-head"><a class="pc-name" href="https://github.com/aminul-portfolio/careerfunnel-tracker" target="_blank">CareerFunnel Tracker</a><span class="pc-badge b-dj">Django</span></div>
+      <p class="pc-body">Career intelligence and application-tracking platform with funnel metrics and document workflows.</p>
+      <div class="pc-specs">
+        <div class="pc-sr"><span class="pc-sk">Tracking</span><span class="pc-sv">Funnel · source perf</span></div>
+        <div class="pc-sr"><span class="pc-sk">Workflows</span><span class="pc-sv">CV A/B · Doc Pack</span></div>
+        <div class="pc-sr"><span class="pc-sk">Tests</span><span class="pc-sv hl">828 automated</span></div>
       </div>
-      <p class="pc-body">Multi-source market data ingestion with ETL workflows, normalised storage, and a read-only API layer for analyst-facing consumption.</p>
-      <table class="spec-table">
-        <tr><td class="spec-k">Sources</td><td class="spec-v"><span class="spec-tag">yfinance</span> <span class="spec-tag">ccxt</span> <span class="spec-tag">TwelveData</span></td></tr>
-        <tr><td class="spec-k">Storage</td><td class="spec-v">Normalised models · run logging</td></tr>
-        <tr><td class="spec-k">Delivery</td><td class="spec-v">Read-only JSON API layer</td></tr>
-      </table>
-      <div class="pc-pills"><span class="pp">Python</span><span class="pp">ETL</span><span class="pp">REST API</span><span class="pp">Django</span></div>
+      <a class="pc-lnk" href="https://github.com/aminul-portfolio/careerfunnel-tracker" target="_blank">view on GitHub</a>
+    </div>
+    <div class="pc">
+      <div class="pc-head"><a class="pc-name" href="https://github.com/aminul-portfolio/databridge-market-api" target="_blank">DataBridge Market API</a><span class="pc-badge b-ft">FinTech</span></div>
+      <p class="pc-body">Multi-source market data ingestion with ETL workflows and a read-only API layer.</p>
+      <div class="pc-specs">
+        <div class="pc-sr"><span class="pc-sk">Sources</span><span class="pc-sv">yfinance · ccxt · TwelveData</span></div>
+        <div class="pc-sr"><span class="pc-sk">Storage</span><span class="pc-sv">Normalised · run logging</span></div>
+        <div class="pc-sr"><span class="pc-sk">Delivery</span><span class="pc-sv">Read-only JSON API</span></div>
+      </div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/databridge-market-api" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
-        <a class="pc-name" href="https://github.com/aminul-portfolio/tradeintel-360" target="_blank">TradeIntel 360</a>
-        <span class="pc-badge b-ft">FinTech</span>
+      <div class="pc-head"><a class="pc-name" href="https://github.com/aminul-portfolio/tradeintel-360" target="_blank">TradeIntel 360</a><span class="pc-badge b-ft">FinTech</span></div>
+      <p class="pc-body">Post-trade analytics with a 17-metric KPI engine and configurable Excel and PDF exports.</p>
+      <div class="pc-specs">
+        <div class="pc-sr"><span class="pc-sk">Analytics</span><span class="pc-sv hl">17-metric KPI engine</span></div>
+        <div class="pc-sr"><span class="pc-sk">Exports</span><span class="pc-sv">Excel · KPI sheet · PDF</span></div>
+        <div class="pc-sr"><span class="pc-sk">Stack</span><span class="pc-sv">Pandas · Plotly</span></div>
       </div>
-      <p class="pc-body">Post-trade performance analytics with a 17-metric KPI engine and configurable reporting exports.</p>
-      <table class="spec-table">
-        <tr><td class="spec-k">Analytics</td><td class="spec-v spec-hi">17-metric KPI engine</td></tr>
-        <tr><td class="spec-k">Exports</td><td class="spec-v">Excel · optional KPI sheet · PDF</td></tr>
-        <tr><td class="spec-k">Workflow</td><td class="spec-v">Session-driven CSV upload</td></tr>
-      </table>
-      <div class="pc-pills"><span class="pp">Pandas</span><span class="pp">Plotly</span><span class="pp">openpyxl</span><span class="pp">xhtml2pdf</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/tradeintel-360" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
-        <a class="pc-name" href="https://github.com/aminul-portfolio/marketvista-dashboard" target="_blank">MarketVista Dashboard</a>
-        <span class="pc-badge b-ft">FinTech</span>
+      <div class="pc-head"><a class="pc-name" href="https://github.com/aminul-portfolio/marketvista-dashboard" target="_blank">MarketVista Dashboard</a><span class="pc-badge b-ft">FinTech</span></div>
+      <p class="pc-body">Market monitoring with severity-ranked signals, watchlists, and threshold alerts.</p>
+      <div class="pc-specs">
+        <div class="pc-sr"><span class="pc-sk">Signals</span><span class="pc-sv">Severity-ranked logic</span></div>
+        <div class="pc-sr"><span class="pc-sk">Monitoring</span><span class="pc-sv">Watchlists · alerts</span></div>
+        <div class="pc-sr"><span class="pc-sk">Stack</span><span class="pc-sv">Django · Plotly</span></div>
       </div>
-      <p class="pc-body">Market monitoring and analyst visibility layer across FX and equity data with intelligent signal ranking.</p>
-      <table class="spec-table">
-        <tr><td class="spec-k">Signals</td><td class="spec-v">Severity-ranked signal logic</td></tr>
-        <tr><td class="spec-k">Monitoring</td><td class="spec-v">Watchlists · threshold alerts</td></tr>
-        <tr><td class="spec-k">Inspection</td><td class="spec-v">OHLC-backed asset visibility</td></tr>
-      </table>
-      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Plotly</span><span class="pp">signals</span><span class="pp">watchlists</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/marketvista-dashboard" target="_blank">view on GitHub</a>
     </div>
     <div class="pc">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
-        <a class="pc-name" href="https://github.com/aminul-portfolio/riskwise-planner" target="_blank">RiskWise Planner</a>
-        <span class="pc-badge b-ft">FinTech</span>
+      <div class="pc-head"><a class="pc-name" href="https://github.com/aminul-portfolio/riskwise-planner" target="_blank">RiskWise Planner</a><span class="pc-badge b-ft">FinTech</span></div>
+      <p class="pc-body">Pre-trade risk planning with Monte Carlo simulation and capital-preservation decision support.</p>
+      <div class="pc-specs">
+        <div class="pc-sr"><span class="pc-sk">Simulation</span><span class="pc-sv">Monte Carlo engine</span></div>
+        <div class="pc-sr"><span class="pc-sk">Analysis</span><span class="pc-sv">Downside-aware review</span></div>
+        <div class="pc-sr"><span class="pc-sk">Stack</span><span class="pc-sv">Django · scenarios</span></div>
       </div>
-      <p class="pc-body">Pre-trade risk planning and scenario modelling for capital-preservation decision support.</p>
-      <table class="spec-table">
-        <tr><td class="spec-k">Simulation</td><td class="spec-v">Monte Carlo scenario engine</td></tr>
-        <tr><td class="spec-k">Analysis</td><td class="spec-v">Downside-aware risk review</td></tr>
-        <tr><td class="spec-k">Output</td><td class="spec-v">Capital-preservation decisions</td></tr>
-      </table>
-      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Monte Carlo</span><span class="pp">scenarios</span></div>
       <a class="pc-lnk" href="https://github.com/aminul-portfolio/riskwise-planner" target="_blank">view on GitHub</a>
-    </div>
-    <div class="pc">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem">
-        <a class="pc-name" href="https://github.com/aminul-portfolio/careerfunnel-tracker" target="_blank">CareerFunnel Tracker</a>
-        <span class="pc-badge b-dj">Django</span>
-      </div>
-      <p class="pc-body">Manual career intelligence and application-tracking platform with funnel metrics and document workflows.</p>
-      <table class="spec-table">
-        <tr><td class="spec-k">Tracking</td><td class="spec-v">Funnel metrics · source performance</td></tr>
-        <tr><td class="spec-k">Workflows</td><td class="spec-v">CV A/B testing · Document Pack</td></tr>
-        <tr><td class="spec-k">Tests</td><td class="spec-v spec-hi">828 automated tests · Sprint 60</td></tr>
-      </table>
-      <div class="pc-pills"><span class="pp">Django</span><span class="pp">Python</span><span class="pp">828 tests</span></div>
-      <a class="pc-lnk" href="https://github.com/aminul-portfolio/careerfunnel-tracker" target="_blank">view on GitHub</a>
     </div>
   </div>
 </div>
@@ -913,152 +909,73 @@ nav{
 <div class="sec rv" id="stack">
 <div class="sec-in">
   <div class="sec-eyebrow">
-    <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">03</span>
-    <div class="sec-rule"></div>
-    <span class="sec-tag">technical stack</span>
+    <span class="sec-num">03</span>
+    <span class="sec-tag">Technical stack</span>
   </div>
-  <h2 class="sec-h">Skills and tooling</h2>
-  <div class="bring-grid rv">
-    <div class="bring-cell">
-      <div class="bring-icon">◈</div>
-      <div class="bring-title">Analytics Engineering</div>
-      <div class="bring-body">dbt models, DuckDB, SQL window functions, dimensional modelling, data quality tests, mart design, lineage documentation</div>
-    </div>
-    <div class="bring-cell">
-      <div class="bring-icon">▦</div>
-      <div class="bring-title">Data Analysis & Reporting</div>
-      <div class="bring-body">Python, Pandas, Plotly, Excel, Power Query, DAX, KPI dashboards, BI-ready CSV exports, PDF reports</div>
-    </div>
-    <div class="bring-cell">
-      <div class="bring-icon">⬡</div>
-      <div class="bring-title">Domain Knowledge</div>
-      <div class="bring-body">15 years FX and money transfer operations, daily reconciliation, AML procedures, KPI reporting, software platform support</div>
-    </div>
-    <div class="bring-cell">
-      <div class="bring-icon">▸</div>
-      <div class="bring-title">Delivery Discipline</div>
-      <div class="bring-body">Sprint-based development, claim-safe documentation, evidence-first commits, 828 automated tests across projects</div>
-    </div>
+  <h2 class="sec-h2">Skills and tooling</h2>
+
+  <div class="bring-grid rv rv-d1">
+    <div class="bring"><div class="bring-ic">◈</div><div class="bring-t">Analytics Engineering</div><div class="bring-b">dbt models, DuckDB, SQL window functions, dimensional modelling, data quality tests, mart design, lineage documentation</div></div>
+    <div class="bring"><div class="bring-ic">▦</div><div class="bring-t">Data Analysis & BI</div><div class="bring-b">Python, Pandas, Plotly, Excel, Power Query, DAX, KPI dashboards, BI-ready CSV exports, PDF reporting</div></div>
+    <div class="bring"><div class="bring-ic">⬡</div><div class="bring-t">FX & FinTech Domain</div><div class="bring-b">15 years FX and money transfer operations, daily reconciliation, AML procedures, multi-currency cashflow, KPI reporting</div></div>
+    <div class="bring"><div class="bring-ic">▸</div><div class="bring-t">Delivery Discipline</div><div class="bring-b">Sprint-based development, claim-safe documentation, evidence-first commits, 828+ automated tests across projects</div></div>
   </div>
-  <div class="stack-grid rv rv-d1">
-    <div class="sg-cell"><p class="sg-cat">Analytics Engineering</p><div class="sg-items"><span class="sg-item prime">dbt Core</span><span class="sg-item prime">DuckDB</span><span class="sg-item prime">SQL</span><span class="sg-item">dimensional modelling</span><span class="sg-item">data quality</span><span class="sg-item">mart design</span></div></div>
-    <div class="sg-cell"><p class="sg-cat">Data Processing</p><div class="sg-items"><span class="sg-item prime">Python</span><span class="sg-item prime">Pandas</span><span class="sg-item">NumPy</span><span class="sg-item">openpyxl</span><span class="sg-item">Plotly</span><span class="sg-item">Chart.js</span><span class="sg-item">xhtml2pdf</span></div></div>
-    <div class="sg-cell"><p class="sg-cat">Backend & APIs</p><div class="sg-items"><span class="sg-item prime">Django</span><span class="sg-item">Django ORM</span><span class="sg-item">REST APIs</span><span class="sg-item">management commands</span><span class="sg-item">ETL workflows</span></div></div>
-    <div class="sg-cell"><p class="sg-cat">Reporting & BI</p><div class="sg-items"><span class="sg-item prime">Excel</span><span class="sg-item">Power Query</span><span class="sg-item">DAX</span><span class="sg-item">VBA</span><span class="sg-item">KPI dashboards</span><span class="sg-item">PDF reports</span></div></div>
-    <div class="sg-cell"><p class="sg-cat">Delivery</p><div class="sg-items"><span class="sg-item">Git · GitHub</span><span class="sg-item">sprint delivery</span><span class="sg-item">dbt tests</span><span class="sg-item">Django TestCase</span><span class="sg-item">claim-safe docs</span></div></div>
-    <div class="sg-cell"><p class="sg-cat">Domain</p><div class="sg-items"><span class="sg-item">FX operations</span><span class="sg-item">money transfer</span><span class="sg-item">reconciliation</span><span class="sg-item">KPI reporting</span><span class="sg-item">AML procedures</span><span class="sg-item">FinTech analytics</span></div></div>
+
+  <div class="stack-grid rv rv-d2">
+    <div class="sc"><p class="sc-cat">Analytics Engineering</p><div class="sc-items"><span class="si prime">dbt Core</span><span class="si prime">DuckDB</span><span class="si prime">SQL</span><span class="si">dimensional modelling</span><span class="si">data quality</span><span class="si">mart design</span></div></div>
+    <div class="sc"><p class="sc-cat">Data Processing</p><div class="sc-items"><span class="si prime">Python</span><span class="si prime">Pandas</span><span class="si">NumPy</span><span class="si">openpyxl</span><span class="si">Plotly</span><span class="si">xhtml2pdf</span></div></div>
+    <div class="sc"><p class="sc-cat">Backend & APIs</p><div class="sc-items"><span class="si prime">Django</span><span class="si">Django ORM</span><span class="si">REST APIs</span><span class="si">management commands</span><span class="si">ETL workflows</span></div></div>
+    <div class="sc"><p class="sc-cat">Reporting & BI</p><div class="sc-items"><span class="si prime">Excel</span><span class="si">Power Query</span><span class="si">DAX</span><span class="si">VBA</span><span class="si">KPI dashboards</span><span class="si">PDF reports</span></div></div>
+    <div class="sc"><p class="sc-cat">Delivery</p><div class="sc-items"><span class="si">Git · GitHub</span><span class="si">sprint delivery</span><span class="si">dbt tests</span><span class="si">Django TestCase</span><span class="si">claim-safe docs</span></div></div>
+    <div class="sc"><p class="sc-cat">Domain</p><div class="sc-items"><span class="si">FX operations</span><span class="si">money transfer</span><span class="si">reconciliation</span><span class="si">KPI reporting</span><span class="si">AML procedures</span></div></div>
   </div>
 </div>
 </div>
 
 <!-- BACKGROUND -->
-<div class="bgsec rv" id="background">
-<div class="bgsec-in">
+<div class="bg-sec rv" id="background">
+<div class="bg-in">
   <div>
-    <div class="sec-eyebrow" style="margin-bottom:2.5rem">
-      <span class="sec-num" style="border:1px solid rgba(232,213,163,.2);background:rgba(232,213,163,.04);padding:.2rem .55rem;border-radius:2px;letter-spacing:.12em">04</span>
-      <div class="sec-rule"></div>
-      <span class="sec-tag">background</span>
+    <div class="sec-eyebrow" style="margin-bottom:1.25rem">
+      <span class="sec-num">04</span>
+      <span class="sec-tag">Professional background</span>
     </div>
-    <h2 class="sec-h" style="font-size:clamp(2rem,4vw,3rem)">15 years UK operational<br>experience</h2>
-    <p style="color:var(--mist);font-size:.88rem;line-height:1.85;max-width:420px;margin-top:1.25rem">Before the portfolio transition I worked across FX operations, money transfer, and software platform support — building an in-house multi-currency reconciliation system, producing monthly stakeholder KPI reports across 800 agents, and acting as the technical bridge between non-technical users and development teams.</p>
-    <p style="color:var(--mist);font-size:.88rem;line-height:1.85;max-width:420px;margin-top:1rem">That operational knowledge shapes every analytics project I build. When I model FX data or define a KPI, I understand what it means in practice — not just what the column contains.</p>
-    <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:.7rem">
-      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--mist)"><span style="color:var(--gold)">▸</span>Targeting Data Analyst, BI Analyst, Reporting Analyst, Junior AE roles</div>
-      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--mist)"><span style="color:var(--gold)">▸</span>London · Remote · Hybrid · No sponsorship required</div>
-      <div style="display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.68rem;color:var(--mist)"><span style="color:var(--gold)">▸</span>BA Business Management &amp; Entrepreneurship in progress (LCCA)</div>
+    <h2 class="sec-h2" style="font-size:clamp(1.75rem,3.5vw,2.5rem)">15 years UK operational experience</h2>
+    <p style="font-size:.9375rem;color:var(--ink3);line-height:1.8;max-width:440px;margin-top:1rem">Before the portfolio transition I worked across FX operations, money transfer, and software platform support — building an in-house multi-currency reconciliation system, producing monthly stakeholder KPI reports, and acting as the technical bridge between non-technical users and development teams.</p>
+    <p style="font-size:.9375rem;color:var(--ink3);line-height:1.8;max-width:440px;margin-top:.875rem">That operational knowledge shapes every analytics project I build. When I model FX data or define a KPI, I understand what it means in practice — not just what the column contains.</p>
+    <div class="bg-targets">
+      <div class="bg-tgt"><span class="bg-tgt-dot"></span>Targeting Data Analyst, BI Analyst, Reporting Analyst, Junior AE roles</div>
+      <div class="bg-tgt"><span class="bg-tgt-dot"></span>London · Remote · Hybrid · No sponsorship required</div>
+      <div class="bg-tgt"><span class="bg-tgt-dot"></span>BA Business Management &amp; Entrepreneurship in progress (LCCA)</div>
     </div>
   </div>
-  <div class="ev-grid rv rv-d2">
-    <div class="ev"><div class="ev-n">£30k</div><div class="ev-body"><div class="ev-t">Daily cash volumes managed</div><div class="ev-d">Acaelus Services Ltd — multi-currency FX and remittance with AML controls, audit-ready reconciliation, and in-house Excel cashflow platform</div></div></div>
-    <div class="ev"><div class="ev-n">800</div><div class="ev-body"><div class="ev-t">UK agents supported</div><div class="ev-d">Bliss Services Ltd — Python-based sales platform, monthly KPI and performance reporting, user-to-developer translation and software support</div></div></div>
-    <div class="ev"><div class="ev-n">ILR</div><div class="ev-body"><div class="ev-t">Full UK work authorisation</div><div class="ev-d">No sponsorship required. Available immediately for Data Analyst, BI Analyst, Reporting Analyst, and Junior Analytics Engineer roles</div></div></div>
+  <div class="bg-ev-list">
+    <div class="bg-ev"><div class="bg-ev-n">£30k</div><div class="bg-ev-body"><div class="bg-ev-t">Daily cash volumes managed</div><div class="bg-ev-d">Acaelus Services Ltd — FX and money transfer with AML controls, audit-ready reconciliation, and in-house Excel cashflow platform</div></div></div>
+    <div class="bg-ev"><div class="bg-ev-n">800</div><div class="bg-ev-body"><div class="bg-ev-t">UK agents supported</div><div class="bg-ev-d">Bliss Services Ltd — Python-based sales platform, monthly KPI reporting, user-to-developer bridge role</div></div></div>
+    <div class="bg-ev"><div class="bg-ev-n">ILR</div><div class="bg-ev-body"><div class="bg-ev-t">Full UK work authorisation</div><div class="bg-ev-d">No sponsorship required. Available immediately for Data Analyst, BI Analyst, Reporting Analyst, and Junior Analytics Engineer roles</div></div></div>
   </div>
 </div>
 </div>
 
 <!-- FOOTER -->
-<div class="foot">
-  <div class="foot-cta">
-    <div class="foot-cta-text">
-      <strong>Open to Data Analyst, BI Analyst, Reporting Analyst, and Junior Analytics Engineer roles.</strong>
-      London · Remote · Hybrid · No sponsorship required.
+<footer>
+  <div class="ft-cta">
+    <div>
+      <div class="ft-cta-h">Open to new opportunities</div>
+      <div class="ft-cta-sub">Data Analyst · BI Analyst · Reporting Analyst · Junior Analytics Engineer · London, Remote, Hybrid</div>
     </div>
-    <a class="foot-cta-btn" href="#" onclick="openEmail();return false;">Get in touch ↗</a>
+    <a class="ft-cta-btn" href="#" onclick="openEmail();return false;">Get in touch ↗</a>
   </div>
-  <div class="foot-claim"><span class="foot-claim-icon">⚠</span>All portfolio projects use seeded demo data. bakeops-dbt is a local DuckDB project — no cloud warehouse, no orchestration, no production deployment or live customers.</div>
-  <div class="foot-main">
-    <div class="foot-sig"><strong>Aminul Islam</strong> · Data Analyst · BI Analyst · Junior Analytics Engineer · London, UK</div>
-    <div class="foot-links">
-      <a class="foot-link" href="https://github.com/aminul-portfolio" target="_blank">GitHub</a>
-      <a class="foot-link" href="https://linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
-      <a class="foot-link" href="#" onclick="openEmail();return false;">Email</a>
+  <div class="ft-main">
+    <div class="ft-sig"><strong>Aminul Islam</strong> · Analytics Engineering Portfolio · London, UK</div>
+    <div class="ft-links">
+      <a class="ft-lnk" href="https://github.com/aminul-portfolio" target="_blank">GitHub</a>
+      <a class="ft-lnk" href="https://www.linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
+      <a class="ft-lnk" href="#" onclick="openEmail();return false;">Email</a>
     </div>
   </div>
-</div>
-
-<script>
-/* ── PARTICLE CANVAS ── */
-const canvas=document.getElementById('bgCanvas');
-const ctx=canvas.getContext('2d');
-let W,H,pts=[];
-const resize=()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;};
-resize();window.addEventListener('resize',resize);
-const N=60;
-for(let i=0;i<N;i++)pts.push({
-  x:Math.random()*W,y:Math.random()*H,
-  vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
-  r:Math.random()*1.5+.5
-});
-let mx=W/2,my=H/2;
-window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-const GOLD=[232,213,163];
-function frame(){
-  ctx.clearRect(0,0,W,H);
-  pts.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;
-    if(p.x<0||p.x>W)p.vx*=-1;
-    if(p.y<0||p.y>H)p.vy*=-1;
-    const dx=p.x-mx,dy=p.y-my,d=Math.sqrt(dx*dx+dy*dy);
-    const a=d<200?(.6*(1-d/200)):0.15;
-    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(${GOLD},${a})`;ctx.fill();
-  });
-  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-    const a=pts[i],b=pts[j];
-    const dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
-    if(d<120){
-      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
-      ctx.strokeStyle=`rgba(${GOLD},${.12*(1-d/120)})`;
-      ctx.lineWidth=.5;ctx.stroke();
-    }
-  }
-  requestAnimationFrame(frame);
-}
-frame();
-
-/* ── CUSTOM CURSOR ── */
-const cur=document.getElementById('cur');
-const curR=document.getElementById('curR');
-let cx=0,cy=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;});
-(function animCur(){
-  rx+=(cx-rx)*.18;ry+=(cy-ry)*.18;
-  cur.style.left=cx+'px';cur.style.top=cy+'px';
-  curR.style.left=rx+'px';curR.style.top=ry+'px';
-  requestAnimationFrame(animCur);
-})();
-document.querySelectorAll('a,button,.chip,.sg-item,.n-cell').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.classList.add('expanded');curR.classList.add('expanded');});
-  el.addEventListener('mouseleave',()=>{cur.classList.remove('expanded');curR.classList.remove('expanded');});
-});
-
-/* ── SCROLL REVEAL ── */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
-},{threshold:.06});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-</script>
+  <div class="ft-claim">⚠ All portfolio projects use seeded demo data. bakeops-dbt is a local DuckDB project — no cloud warehouse, no orchestration, no production deployment or live customers.</div>
+</footer>
 
 <script>
 function openEmail(){
@@ -1066,6 +983,36 @@ function openEmail(){
   var w=window.open('https://mail.google.com/mail/?view=cm&to='+e,'_blank');
   if(!w){window.location.href='mailto:'+e;}
 }
+
+/* scroll reveal */
+const rv=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target);}});
+},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>rv.observe(el));
+
+/* animated counters */
+function animateCounter(el){
+  const target=+el.dataset.target;
+  const dur=1200;
+  const start=performance.now();
+  function step(now){
+    const p=Math.min((now-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(ease*target);
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=target;
+  }
+  requestAnimationFrame(step);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.counter').forEach(animateCounter);
+      cObs.unobserve(e.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.metrics').forEach(el=>cObs.observe(el));
 </script>
 </body>
 </html>
