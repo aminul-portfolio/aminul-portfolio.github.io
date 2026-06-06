@@ -9,15 +9,15 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --void:#02030a;
-  --deep:#060810;
-  --slab:#0a0c12;
-  --layer:#0f1119;
-  --shelf:#141720;
-  --fence:#1a1e28;
-  --dim2:#222733;
-  --dim3:#2c3240;
-  --haze:#3c4455;
+  --void:#0d1117;
+  --deep:#0a0f14;
+  --slab:#161b22;
+  --layer:#1c2128;
+  --shelf:#21262d;
+  --fence:#30363d;
+  --dim2:#373e47;
+  --dim3:#444c56;
+  --haze:#545d68;
   --fog:#556070;
   --ash:#7a8799;
   --mist:#9aaabb;
@@ -61,7 +61,7 @@ a{text-decoration:none;color:inherit}
 .cursor-ring.expanded{width:80px;height:80px;border-color:var(--gold5)}
 
 /* ── CANVAS BG ── */
-#bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5}
+#bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35}
 
 /* ── GRAIN ── */
 .grain{
@@ -76,7 +76,7 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   height:60px;display:flex;align-items:center;
   padding:0 3rem;justify-content:space-between;
-  background:rgba(2,3,10,.8);backdrop-filter:blur(24px);
+  background:rgba(13,17,23,.88);backdrop-filter:blur(24px);
   border-bottom:1px solid var(--fence);
 }
 .nav-mark{
