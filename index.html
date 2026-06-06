@@ -9,19 +9,19 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#fffef9;
-  --warm:#f7f5ef;
-  --stone:#ede9e0;
-  --stone2:#e0dbd0;
-  --border:#d8d3c8;
-  --border2:#c8c2b5;
-  --ink:#1a1814;
-  --ink2:#3d3a35;
-  --ink3:#6b6760;
-  --ink4:#9c9890;
+  --cream:#f6f8fa;
+  --warm:#f0f4f8;
+  --stone:#e8ecf0;
+  --stone2:#dce1e7;
+  --border:#d0d7de;
+  --border2:#b8c0cc;
+  --ink:#0d1117;
+  --ink2:#24292f;
+  --ink3:#57606a;
+  --ink4:#8c959f;
   --gold:#92400e;
   --gold-mid:#b45309;
-  --gold-lt:#fef3c7;
+  --gold-lt:#fffbeb;
   --gold-brd:#fde68a;
   --emerald:#065f46;
   --emerald-lt:#ecfdf5;
@@ -54,14 +54,14 @@ a{text-decoration:none;color:inherit}
 /* dot grid bg */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(circle,var(--stone) 1px,transparent 1px);
-  background-size:32px 32px;opacity:.3;
+  background-image:radial-gradient(circle,#d0d7de 1px,transparent 1px);
+  background-size:32px 32px;opacity:.22;
 }
 
 /* ─── NAV ─── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
-  background:rgba(255,254,249,.94);backdrop-filter:blur(24px);
+  background:rgba(246,248,250,.96);backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
   padding:0 3rem;
