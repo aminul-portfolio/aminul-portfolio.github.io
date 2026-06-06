@@ -35,7 +35,7 @@
   --f-mono:'Geist Mono',monospace;
   --f-sans:'Geist',sans-serif;
 }
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth;font-size:16px;scroll-padding-top:60px}
 body{
   background:var(--void);color:var(--veil);
   font-family:var(--f-sans);font-weight:300;
@@ -533,6 +533,22 @@ nav{
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
 
 /* ── RESPONSIVE ── */
+
+/* Desktop large — add subtle page margin */
+@media(min-width:1400px){
+  .hero-l{padding:7rem 5rem 7rem 4rem}
+  .sec-in{padding:7rem 4rem}
+  .bgsec-in{padding:7rem 4rem}
+}
+
+/* Tablet landscape / small desktop */
+@media(max-width:1200px){
+  .hero-l{padding:6rem 3rem 6rem 2rem}
+  .sec-in{padding:5rem 2rem}
+  .bgsec-in{padding:5rem 2rem}
+}
+
+/* Tablet portrait */
 @media(max-width:1024px){
   .hero{grid-template-columns:1fr}
   .hero-r{display:none}
@@ -553,6 +569,58 @@ nav{
   .hero-l{padding:5rem 1.5rem}
   .foot-main{flex-direction:column;gap:1.5rem;align-items:flex-start}
   .foot-claim{padding:.85rem 1.5rem}
+  .hero-name{font-size:clamp(3rem,8vw,5rem)}
+  .n-val{font-size:2.2rem}
+}
+
+/* Mobile large */
+@media(max-width:768px){
+  nav{padding:0 1rem;height:52px}
+  .nav-links{display:none}
+  .nav-contact{padding:.3rem .7rem;font-size:.65rem}
+  .hero-l{padding:4rem 1rem 3rem}
+  .hero-tag{font-size:.58rem;margin-bottom:2rem}
+  .hero-name{font-size:clamp(2.8rem,10vw,4rem);margin-bottom:1rem}
+  .hero-roles{margin-bottom:2rem}
+  .hero-role{font-size:clamp(1.2rem,5vw,1.8rem)}
+  .hero-body{font-size:.82rem;margin-bottom:2rem}
+  .hero-chips{gap:.3rem;margin-bottom:2rem}
+  .chip{font-size:.6rem;padding:.2rem .5rem}
+  .hero-btns{flex-direction:column;gap:.5rem}
+  .btn-a,.btn-b{justify-content:center;padding:.55rem 1rem;font-size:.7rem}
+  .nums{grid-template-columns:1fr 1fr}
+  .n-cell{padding:1.5rem 1rem}
+  .n-val{font-size:1.8rem}
+  .n-key{font-size:.58rem}
+  .n-sub{font-size:.7rem}
+  .sec-in{padding:3rem 1rem}
+  .sec-h{font-size:clamp(1.8rem,6vw,2.5rem)}
+  .sec-sub{font-size:.82rem}
+  .bgsec-in{padding:3rem 1rem}
+  .pipe-foot{flex-direction:column;gap:.75rem;padding:.85rem 1rem}
+  .pc{padding:1.5rem 1rem}
+  .pc-name{font-size:1rem}
+  .pc-body{font-size:.8rem}
+  .ic{padding:1rem}
+  .sg-cell{padding:1.25rem 1rem}
+  .ev-n{font-size:1.3rem;padding:1rem}
+  .ev-body{padding:1rem}
+  .foot-claim{font-size:.65rem;padding:.75rem 1rem}
+  .foot-main{padding:1.5rem 1rem}
+  .cursor,.cursor-ring{display:none}
+}
+
+/* Mobile small */
+@media(max-width:480px){
+  .hero-l{padding:3.5rem .85rem 2.5rem}
+  .sec-in{padding:2.5rem .85rem}
+  .bgsec-in{padding:2.5rem .85rem}
+  .nums{grid-template-columns:1fr 1fr}
+  .n-cell{padding:1.25rem .85rem}
+  .hero-name{font-size:clamp(2.5rem,12vw,3.5rem)}
+  .sec-eyebrow{gap:.75rem}
+  .foot-claim{padding:.7rem .85rem}
+  .foot-main{padding:1.25rem .85rem}
 }
 </style>
 </head>
@@ -579,7 +647,7 @@ nav{
     <a class="nav-link" href="#stack">Stack</a>
     <a class="nav-link" href="#background">Background</a>
   </div>
-  <a class="nav-contact" href="https://mail.google.com/mail/?view=cm&to=aminulislamkhan.tech@gmail.com">contact ↗</a>
+  <a class="nav-contact" href="#" onclick="openEmail();return false;">contact ↗</a>
 </nav>
 
 <!-- HERO -->
@@ -608,8 +676,8 @@ nav{
     </div>
     <div class="hero-btns">
       <a class="btn-a" href="https://github.com/aminul-portfolio" target="_blank">⬡ GitHub portfolio</a>
-      <a class="btn-b" href="https://www.linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
-      <a class="btn-b" href="https://mail.google.com/mail/?view=cm&to=aminulislamkhan.tech@gmail.com">Email</a>
+      <a class="btn-b" href="https://linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
+      <a class="btn-b" href="#" onclick="openEmail();return false;">Email</a>
     </div>
   </div>
   <div class="hero-r">
@@ -821,8 +889,8 @@ nav{
     <div class="foot-sig"><strong>Aminul Islam</strong> · Data Analyst · BI Analyst · Junior Analytics Engineer · London, UK</div>
     <div class="foot-links">
       <a class="foot-link" href="https://github.com/aminul-portfolio" target="_blank">GitHub</a>
-      <a class="foot-link" href="https://www.linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
-      <a class="foot-link" href="https://mail.google.com/mail/?view=cm&to=aminulislamkhan.tech@gmail.com">Email</a>
+      <a class="foot-link" href="https://linkedin.com/in/aminul-islam-a71a871a2" target="_blank">LinkedIn</a>
+      <a class="foot-link" href="#" onclick="openEmail();return false;">Email</a>
     </div>
   </div>
 </div>
@@ -888,6 +956,14 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
 },{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+
+<script>
+function openEmail(){
+  var e='aminulislamkhan.tech@gmail.com';
+  var w=window.open('https://mail.google.com/mail/?view=cm&to='+e,'_blank');
+  if(!w){window.location.href='mailto:'+e;}
+}
 </script>
 </body>
 </html>
